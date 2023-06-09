@@ -12,8 +12,8 @@ export const metadata = {
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html lang="en" className="bg-slate-50">
-      <body className="lg:max-w-6xl mx-auto">
-        <header className="flex items-baseline px-2 pt-4 pb-2 border-blue-400 border-dotted border-b-[1px] [&_a:hover]:text-blue-700 [&_a]:transition-colors gap-4 mb-9">
+      <body>
+        <header className="lg:max-w-6xl mx-auto flex items-baseline px-2 pt-4 pb-2 border-blue-400 border-dotted border-b-[1px] [&_a:hover]:text-blue-700 [&_a]:transition-colors gap-4 mb-9">
           <Link href="/" className="flex-grow-0">
             <Image src="/MDXEditor.svg" alt="MDX Editor" width={239} height={39} />
           </Link>
@@ -32,7 +32,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
             GitHub
           </Link>
         </header>
-        <main className="p-2">{children}</main>
+        <main className="p-2 lg:max-w-6xl mx-auto">{children}</main>
       </body>
     </html>
   )
