@@ -1,5 +1,29 @@
 import {slate, blue} from '@radix-ui/colors'
 
+const keyMapper = {
+  1: 50,
+  2: 100,
+  3: 200,
+  4: 300,
+  5: 400,
+  6: 500,
+  7: 600,
+  8: 700,
+  9: 800,
+  10: 900,
+  11: 950,
+  12: 1000,
+}
+const twBlue = Object.entries(blue).reduce((acc, [key, value]) => {
+  acc[keyMapper[key.replace('blue', '')]] = value;
+  return acc;
+}, {});
+
+const twSlate = Object.entries(slate).reduce((acc, [key, value]) => {
+  acc[keyMapper[key.replace('slate', '')]] = value;
+  return acc;
+}, {});
+
 /** @type {import('tailwindcss').Config} */
 module.exports = {
   content: [
@@ -10,9 +34,10 @@ module.exports = {
   theme: {
     extend: {
       colors: {
-        slate, blue
+        // blue: twBlue,
+        // slate: twSlate,
       }
-    },
+    }
   },
   plugins: [],
 }
