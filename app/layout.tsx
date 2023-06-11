@@ -11,9 +11,9 @@ export const metadata = {
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <html lang="en" className="bg-slate-50">
+    <html lang="en" className="bg-neutral-base text-neutral-textContrast">
       <body>
-        <header className="lg:max-w-6xl mx-auto flex items-baseline px-4 pt-4 pb-2 border-blue-400 border-dotted border-b-[1px] [&_a:hover]:text-blue-700 [&_a]:transition-colors gap-4 mb-9">
+        <header className="lg:max-w-6xl mx-auto flex items-baseline px-4 pt-4 pb-2 border-accent-solid border-dotted border-b-2 [&_a:hover]:text-accent-text [&_a]:transition-colors gap-4 mb-9">
           <Link href="/" className="flex-grow-0">
             <Image src="/MDXEditor.svg" alt="MDX Editor" width={239} height={39} />
           </Link>

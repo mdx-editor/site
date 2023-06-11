@@ -6,11 +6,11 @@ const CodeLineHighlighter: React.FC<{ code: string; fromLine: number; toLine: nu
   const before = lines.slice(0, fromLine - 1).join('\n')
   const after = lines.slice(toLine).join('\n')
   return (
-    <code className="bg-slate-950 rounded-md p-4 block text-slate-50">
+    <code className="bg-dark-neutral-bg rounded-md p-4 block text-dark-neutral-text text-sm w-full">
       <pre className="font-mono font-extralight">
         {before}
         {'\n'}
-        <mark className="bg-purple-300">{highlightedLines}</mark>
+        <mark className="bg-dark-neutral-borderHover text-dark-neutral-textContrast">{highlightedLines}</mark>
         {'\n'}
         {after}
       </pre>
@@ -29,12 +29,12 @@ const codeSample1 = `
 
 export default function Home() {
   return (
-    <div className="grid grid-cols-2 gap-y-8 [&>div]:p-4 [&>div]:py-6 [&>div:nth-child(n+3)]:bg-slate-200 [&>div:nth-child(n+4)]:bg-slate-200">
+    <div className="grid grid-cols-2 gap-y-8 [&>div]:p-4 [&>div]:py-6 [&>div:nth-child(n+3)]:bg-neutral-bg [&>div:nth-child(n+4)]:bg-neutral-bg">
       <div>
         <h2 className="font-mono text-2xl font-extralight mb-4">
           <span className="underline">Markdown</span> editing can be <br />
           even{' '}
-          <span className="bg-blue-200 after:border-r-blue-700 after:border-solid after:border-r-[3px] after:inline-block after:h-[2.1rem] after:translate-y-[0.5rem]">
+          <span className="bg-accent-line after:border-r-accent-solidHover after:border-solid after:border-r-[3px] after:inline-block after:h-[2.1rem] after:translate-y-[0.5rem]">
             more
           </span>{' '}
           delightful.
@@ -45,8 +45,10 @@ export default function Home() {
         </p>
 
         <div className="py-4 flex gap-8">
-          <button className="border-solid border-2 rounded-md border-slate-700 px-8 py-3 bg-white">Try it live</button>
-          <button className="border-solid border-2 rounded-md border-blue-700 bg-blue-700 px-8 py-3 text-white">Get started</button>
+          <button className="border-solid border-2 rounded-md border-neutral-textContrast px-8 py-3 bg-white">Try it live</button>
+          <button className="border-solid border-2 rounded-md border-accent-text bg-accent-text px-8 py-3 text-neutral-base">
+            Get started
+          </button>
         </div>
       </div>
 
@@ -56,7 +58,7 @@ export default function Home() {
 
       {/* stage 2 */}
 
-      <div>
+      <div className="flex items-stretch">
         <CodeLineHighlighter code={codeSample1} fromLine={4} toLine={5} />
       </div>
 
@@ -64,9 +66,9 @@ export default function Home() {
         <h2 className="font-mono text-2xl font-extralight mb-4">
           What you see is what you get. <br /> No, really!
         </h2>
-        <p className="text-lg">No more need for edit ↔ preview. Style the content editable part with the same styles as your live site.</p>
+        <p className="text-lg">No more need for edit ↔ preview. Style the rich text with the same styles as your actual page.</p>
 
-        <a href="#" className="mt-5 block text-blue-900">
+        <a href="#" className="mt-5 block text-accent-text">
           Read more about content styling →
         </a>
       </div>
