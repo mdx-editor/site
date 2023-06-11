@@ -8,10 +8,14 @@ function twElement<T extends keyof JSX.IntrinsicElements>(elemTagName: T, classN
   }
 }
 
-const CodeBlock = twElement('code', 'bg-dark-neutral-bg rounded-md p-4 block text-dark-neutral-text text-sm w-full')
-const PreBlock = twElement('pre', 'font-mono font-extralight')
-const Mark = twElement('mark', 'bg-dark-neutral-borderHover text-dark-neutral-textContrast')
-const ActionButton = twElement('button', 'border-solid border-2 rounded-md border-neutral-textContrast px-8 py-3 bg-white')
+const CodeBlock = twElement(
+  'code',
+  'p-4 block text-neutral-textContrast text-sm w-full bg-neutral-base border-2 border-dotted border-accent-solidHover shadow-md'
+)
+const PreBlock = twElement('pre', 'font-mono font-light')
+const Mark = twElement('mark', 'bg-neutral-borderHover text-neutral-textContrast')
+const ActionLinkButton = twElement('a', 'border-solid border-2 rounded-md border-neutral-textContrast px-8 py-3 bg-white font-mono text-sm')
+const ActionLink = twElement('a', 'block mt-5 text-accent-text after:content-["/>"] after:ml-2 after:font-mono')
 
 const CodeLineHighlighter: React.FC<{ code: string; fromLine?: number; toLine?: number }> = ({ code, fromLine = 0, toLine = 0 }) => {
   const lines = code.split('\n')
@@ -58,7 +62,7 @@ export default function Home() {
         <h2 className="font-mono text-2xl font-normal mb-4">
           <span className="underline">Markdown</span> editing can be <br />
           even{' '}
-          <span className="bg-accent-line after:border-r-accent-solidHover after:border-solid after:border-r-[3px] after:inline-block after:h-[2.1rem] after:translate-y-[0.5rem]">
+          <span className="bg-accent-bg after:border-r-accent-borderHover after:border-solid after:border-r-2 after:inline-block after:h-[2.1rem] after:translate-y-[0.5rem]">
             more
           </span>{' '}
           delightful.
@@ -70,8 +74,10 @@ export default function Home() {
         </p>
 
         <div className="py-4 flex gap-8">
-          <ActionButton>Try it live</ActionButton>
-          <ActionButton className="border-accent-text bg-accent-text text-neutral-base">Get started</ActionButton>
+          <ActionLinkButton>Try it live</ActionLinkButton>
+          <ActionLinkButton href="/docs/editor/getting-started" className="border-accent-text bg-accent-text text-neutral-base">
+            Get started
+          </ActionLinkButton>
         </div>
       </div>
       <div className="bg-white rounded-md p-4">
@@ -87,21 +93,18 @@ export default function Home() {
         </h2>
         <p className="text-lg">No more need for edit ↔ preview. Style the rich text with the same styles as your actual page.</p>
 
-        <a href="#" className="mt-5 block text-accent-text">
-          Read more about content styling →
-        </a>
+        <ActionLink href="#">Read more about content styling</ActionLink>
       </div>
       {/* stage 3 */}
       <div>
         <h2 className="font-mono text-2xl mb-4">No more code samples with sneaky syntax errors</h2>
+
         <p className="text-lg">
           Code blocks are now editable with syntax highlighting, auto-complete and indentation. You can even configure a live preview for
           your code blocks, powered by sandpack.
         </p>
 
-        <a href="#" className="mt-5 block text-accent-text">
-          Code blocks docs →
-        </a>
+        <ActionLink href="#">Code blocks docs</ActionLink>
       </div>
       <div className="flex items-stretch">
         <CodeLineHighlighter code={codeSample2} fromLine={0} toLine={1} />
