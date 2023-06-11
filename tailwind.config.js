@@ -73,6 +73,10 @@ module.exports = {
         neutral,
         'dark-accent': darkAccent,
         'dark-neutral': darkNeutral,
+      },
+      fontFamily: {
+        sans: ['var(--font-source-sans-3)'],
+        mono: ['var(--font-ibm-plex-mono)'],
       }
     }
   },
