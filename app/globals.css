@@ -1,5 +1,16 @@
 @import url('mdxeditor/style.css');
+@import url('prism-themes/themes/prism-vsc-dark-plus.css');
 
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer components {
+  .my-line-highlight span.token {
+    @apply bg-dark-neutral-border;
+  }
+}
+pre[class*="language-"], code[class*="language-"] {
+  @apply font-mono;
+  font-size: inherit;
+}

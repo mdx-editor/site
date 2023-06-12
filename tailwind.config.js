@@ -1,4 +1,5 @@
 import {slate, blue, blueDark, slateDark } from '@radix-ui/colors'
+import typography from '@tailwindcss/typography'
 
 const accent = {
   base: blue.blue1,
@@ -80,5 +81,5 @@ module.exports = {
       }
     }
   },
-  plugins: [],
+  plugins: [ typography ],
 }

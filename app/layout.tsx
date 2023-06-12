@@ -1,5 +1,6 @@
 import './globals.css'
-import Image from 'next/image'
+import Logo from './images/MDXEditor.svg'
+import GithubLogo from './images/github.svg'
 import Link from 'next/link'
 import { Inter, Source_Sans_3, IBM_Plex_Mono } from 'next/font/google'
 
@@ -30,9 +31,9 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html lang="en" className={`bg-neutral-base text-neutral-textContrast ${inter.variable} ${source.variable} ${ibmPlexMono.variable}`}>
       <body>
-        <header className="lg:max-w-6xl mx-auto flex items-baseline px-4 pt-4 pb-2 border-accent-solid border-dotted border-b-2 [&_a:hover]:text-accent-text [&_a]:transition-colors gap-4 mb-9">
+        <header className="lg:max-w-7xl mx-auto flex items-baseline px-4 pt-4 pb-2 border-accent-solid border-dotted border-b-2 [&_a:hover]:text-accent-text [&_a]:transition-colors gap-4 mb-9">
           <Link href="/" className="flex-grow-0">
-            <Image src="/MDXEditor.svg" alt="MDX Editor" width={239} height={39} />
+            <Logo alt="MDX Editor" width={239} height={39} />
           </Link>
           <nav className="flex flex-grow font-mono font-normal">
             <ul className="flex gap-4">
@@ -40,16 +41,16 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <Link href="/">Live demo</Link>
               </li>
               <li>
-                <Link href="/">Docs</Link>
+                <Link href="/docs/editor/getting-started">Docs</Link>
               </li>
             </ul>
             <Link href="https://github.com" className="flex items-center gap-1 ml-auto">
-              <Image src="/github.svg" width={14} height={14} alt="Github logo" />
+              <GithubLogo width={14} height={14} alt="Github logo" />
               GitHub
             </Link>
           </nav>
         </header>
-        <main className="py-2 lg:max-w-6xl mx-auto">{children}</main>
+        <main className="py-2 lg:max-w-7xl mx-auto">{children}</main>
       </body>
     </html>
   )

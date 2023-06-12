@@ -1,6 +1,7 @@
 import { createElement, JSX } from 'react'
 import { twMerge } from 'tailwind-merge'
 import HomepageEditor from './homepage-editor'
+import Prism from './prism-renderer'
 
 function twElement<T extends keyof JSX.IntrinsicElements>(elemTagName: T, className: string) {
   return ({ className: classNameProp, ...props }: JSX.IntrinsicElements[T]) => {
@@ -8,30 +9,8 @@ function twElement<T extends keyof JSX.IntrinsicElements>(elemTagName: T, classN
   }
 }
 
-const CodeBlock = twElement(
-  'code',
-  'p-4 block text-neutral-textContrast text-sm w-full bg-neutral-base border-2 border-dotted border-accent-solidHover shadow-md'
-)
-const PreBlock = twElement('pre', 'font-mono font-light')
-const Mark = twElement('mark', 'bg-neutral-borderHover text-neutral-textContrast')
 const ActionLinkButton = twElement('a', 'border-solid border-2 rounded-md border-neutral-textContrast px-8 py-3 bg-white font-mono text-sm')
 const ActionLink = twElement('a', 'block mt-5 text-accent-text after:content-["/>"] after:ml-2 after:font-mono')
-
-const CodeLineHighlighter: React.FC<{ code: string; fromLine?: number; toLine?: number }> = ({ code, fromLine = 0, toLine = 0 }) => {
-  const lines = code.split('\n')
-  const before = fromLine === 0 ? '' : lines.slice(0, fromLine - 1).join('\n') + '\n'
-  const highlightedLines = lines.slice(Math.max(fromLine - 1, 0), toLine).join('\n') + '\n'
-  const after = lines.slice(toLine).join('\n')
-  return (
-    <CodeBlock>
-      <PreBlock>
-        {before}
-        <Mark>{highlightedLines}</Mark>
-        {after}
-      </PreBlock>
-    </CodeBlock>
-  )
-}
 
 const codeSample1 = `
 <MdxEditor
@@ -85,7 +64,7 @@ export default function Home() {
       </div>
       {/* stage 2 */}
       <div className="flex items-stretch">
-        <CodeLineHighlighter code={codeSample1} fromLine={4} toLine={5} />
+        <Prism code={codeSample1} language="tsx" fromLine={3} toLine={4} />
       </div>
       <div>
         <h2 className="font-mono text-2xl mb-4">
@@ -107,7 +86,7 @@ export default function Home() {
         <ActionLink href="#">Code blocks docs</ActionLink>
       </div>
       <div className="flex items-stretch">
-        <CodeLineHighlighter code={codeSample2} fromLine={0} toLine={1} />
+        <Prism code={codeSample2} language="tsx" fromLine={0} toLine={0} />
       </div>
     </div>
   )
