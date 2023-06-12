@@ -1,8 +1,6 @@
 'use client'
 import { ToolbarComponents } from 'mdxeditor'
-import dynamic from 'next/dynamic'
-
-const MDXEditor = dynamic(() => import('mdxeditor').then((mod) => mod.MDXEditor), { ssr: false })
+import MDXEditor from './editor'
 
 const HomepageEditor: React.FC = () => {
   return (

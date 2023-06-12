@@ -54,7 +54,7 @@ export default function Home() {
 
         <div className="py-4 flex gap-8">
           <ActionLinkButton>Try it live</ActionLinkButton>
-          <ActionLinkButton href="/docs/editor/getting-started" className="border-accent-text bg-accent-text text-neutral-base">
+          <ActionLinkButton href="/editor/docs/getting-started" className="border-accent-text bg-accent-text text-neutral-base">
             Get started
           </ActionLinkButton>
         </div>

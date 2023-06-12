@@ -9,8 +9,18 @@
   .my-line-highlight span.token {
     @apply bg-dark-neutral-border;
   }
+
+  .prose code[data-lexical-text] {
+    @apply font-mono;
+    font-size: inherit;
+    font-weight: inherit;
+    &:before, &:after {
+      content: none;
+    }
+  }
 }
 pre[class*="language-"], code[class*="language-"] {
   @apply font-mono;
   font-size: inherit;
 }
+

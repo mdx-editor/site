@@ -44,7 +44,7 @@ export default function Page({ params }: { params: PageParams }) {
               <li key={doc.slug}>
                 <Link
                   className="hover:text-accent-text transition-colors data-[current=true]:text-accent-text"
-                  href={`/docs/editor/${doc.slug}`}
+                  href={`/editor/docs/${doc.slug}`}
                   data-current={params.slug === doc.slug}
                 >
                   {doc.title}

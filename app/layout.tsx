@@ -32,16 +32,16 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <html lang="en" className={`bg-neutral-base text-neutral-textContrast ${inter.variable} ${source.variable} ${ibmPlexMono.variable}`}>
       <body>
         <header className="lg:max-w-7xl mx-auto flex items-baseline px-4 pt-4 pb-2 border-accent-solid border-dotted border-b-2 [&_a:hover]:text-accent-text [&_a]:transition-colors gap-4 mb-9">
-          <Link href="/" className="flex-grow-0">
-            <Logo alt="MDX Editor" width={239} height={39} />
+          <Link href="/" className="inline-block">
+            <Logo alt="MDX Editor" width={239} height={39} className="block translate-y-1" />
           </Link>
-          <nav className="flex flex-grow font-mono font-normal">
+          <nav className="flex flex-grow font-mono font-normal pb-1">
             <ul className="flex gap-4">
               <li>
-                <Link href="/">Live demo</Link>
+                <Link href="/editor/demo">Live demo</Link>
               </li>
               <li>
-                <Link href="/docs/editor/getting-started">Docs</Link>
+                <Link href="/editor/docs/getting-started">Docs</Link>
               </li>
             </ul>
             <Link href="https://github.com" className="flex items-center gap-1 ml-auto">
