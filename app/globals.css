@@ -1,6 +1,3 @@
-@import url('mdxeditor/style.css');
-@import url('prism-themes/themes/prism-vsc-dark-plus.css');
-
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -11,6 +8,15 @@
   }
 
   .prose {
+    & code {
+      @apply text-secondary-text;
+    }
+
+    & a {
+      @apply text-accent-text;
+      text-decoration: none;
+    }
+
     & code[data-lexical-text] {
       @apply font-mono;
       font-size: inherit;
@@ -45,6 +51,17 @@
     & pre[class*="language-"], & code[class*="language-"] {
       @apply font-mono;
       font-size: inherit;
+    }
+
+    & [data-editor-type=frontmatter] {
+      & table {
+        margin: 0;
+        font-size: inherit;
+        width: auto;
+        & thead, & tbody, & tfoot, & tr {
+          border: 0;
+        }
+      }
     }
   }
 }

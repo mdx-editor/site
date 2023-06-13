@@ -8,7 +8,6 @@ This is a **live demo** of MDXEditor with all default features on.
 
 [— Daring Fireball](https://daringfireball.net/projects/markdown/).
 
-The current editor content is styled using the `@tailwindcss/typography` [plugin](https://tailwindcss.com/docs/typography-plugin).
 
 In here, you can find the following markdown elements:
 
@@ -23,9 +22,11 @@ In here, you can find the following markdown elements:
 * Code block editors
 * And much more.
 
+The current editor content is styled using the `@tailwindcss/typography` [plugin](https://tailwindcss.com/docs/typography-plugin).
+
 ## What can you do here?
 
-This is a great location for you to test how editing markdown feels in here. If you have an existing markdown source, you can switch to source mode using the toggle group in the top right, paste it in there, and go back to rich text mode.
+This is a great location for you to test how editing markdown feels. If you have an existing markdown source, you can switch to source mode using the toggle group in the top right, paste it in there, and go back to rich text mode.
 
 If you need a few ideas, here's what you can try:
 
@@ -36,7 +37,19 @@ If you need a few ideas, here's what you can try:
 5. Test the diff feature to see how the markdown has changed
 6. Add a frontmatter block through the toolbar button
 
-### A live code example
+## A code sample
+
+MDXEditor embeds CodeMirror for code editing.
+
+```tsx 
+export default function App() {
+  return (<div>Hello world</div>)
+}
+```
+
+## A live code example
+
+The block below is a live React component. You can configure multiple live code presets that specify the available npm packages and the default imports. You can also specify a default component that will be rendered in the live code block.
 
 ```jsx live
 export default function App() {

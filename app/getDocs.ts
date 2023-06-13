@@ -28,10 +28,12 @@ export function getDocs(directoryPath: string): MarkdownDocument[] {
     const thePath = path.join(directoryPath, filePath)
     const content = fs.readFileSync(thePath, 'utf-8')
     const {
-      data: { title = 'No Title', slug = '', position = Infinity },
+      data: { title, slug = '', position = Infinity },
     }: GrayMatterContents = grayMatter(content)
 
-    markdownFiles.push({ slug, content, title, position })
+    if (title) {
+      markdownFiles.push({ slug, content, title, position })
+    }
   })
 
   markdownFiles.sort((a, b) => a.position - b.position)

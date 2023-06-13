@@ -17,7 +17,6 @@ const codeSample1 = `
   markdown={markdown}
   className={className}
   contentEditableClassName="my-prose-class"
-  lexicalTheme={myTheme}
 />
 `.trim()
 
@@ -64,7 +63,7 @@ export default function Home() {
       </div>
       {/* stage 2 */}
       <div className="flex items-stretch">
-        <Prism code={codeSample1} language="tsx" fromLine={3} toLine={4} />
+        <Prism code={codeSample1} language="tsx" fromLine={3} toLine={3} />
       </div>
       <div>
         <h2 className="font-mono text-2xl mb-4">

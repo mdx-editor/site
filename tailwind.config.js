@@ -1,4 +1,4 @@
-import {slate, blue, blueDark, slateDark } from '@radix-ui/colors'
+import {slate, blue, blueDark, slateDark, pink } from '@radix-ui/colors'
 import typography from '@tailwindcss/typography'
 
 const accent = {
@@ -14,6 +14,22 @@ const accent = {
   solidHover: blue.blue10,
   text: blue.blue11,
   textContrast: blue.blue12,
+} 
+
+
+const secondary = {
+  base: pink.pink1,
+  bgSubtle: pink.pink2,
+  bg: pink.pink3,
+  bgHover: pink.pink4,
+  bgActive: pink.pink5,
+  line: pink.pink6,
+  border: pink.pink7,
+  borderHover: pink.pink8,
+  solid: pink.pink9,
+  solidHover: pink.pink10,
+  text: pink.pink11,
+  textContrast: pink.pink12,
 } 
 
 const neutral = {
@@ -72,6 +88,7 @@ module.exports = {
       colors: {
         accent,
         neutral,
+        secondary,
         'dark-accent': darkAccent,
         'dark-neutral': darkNeutral,
       },

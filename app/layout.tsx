@@ -1,4 +1,7 @@
 import './globals.css'
+import 'mdxeditor/style.css'
+import 'prism-themes/themes/prism-vsc-dark-plus.css'
+
 import Logo from './images/MDXEditor.svg'
 import GithubLogo from './images/github.svg'
 import Link from 'next/link'
