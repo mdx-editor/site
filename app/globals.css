@@ -10,17 +10,43 @@
     @apply bg-dark-neutral-border;
   }
 
-  .prose code[data-lexical-text] {
-    @apply font-mono;
-    font-size: inherit;
-    font-weight: inherit;
-    &:before, &:after {
-      content: none;
+  .prose {
+    & code[data-lexical-text] {
+      @apply font-mono;
+      font-size: inherit;
+      font-weight: inherit;
+      &:before, &:after {
+        content: none;
+      }
+    }
+
+    /* reset the prose borders */
+    & [data-lexical-decorator] > table {
+      table-layout: fixed;
+      & td {
+        vertical-align: middle;
+      }
+      & > thead, & > tfoot, & > tbody > tr {
+        border: 0;
+      }
+
+      & [data-tool-cell] {
+        padding: 1px;
+        border: 0;
+        line-height: 1rem;
+        vertical-align: middle;
+      }
+
+      & > thead [data-tool-cell]:first-child {
+        vertical-align: middle;
+      }
+    }
+
+    & pre[class*="language-"], & code[class*="language-"] {
+      @apply font-mono;
+      font-size: inherit;
     }
   }
 }
-pre[class*="language-"], code[class*="language-"] {
-  @apply font-mono;
-  font-size: inherit;
-}
+
 

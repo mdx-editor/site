@@ -5,3 +5,4 @@ pnpm build
 pnpm pack
 cd -
 npm install ../editor/mdxeditor-0.0.*.tgz
+rm -rf .next/cache

@@ -49,7 +49,8 @@ export default function App() {
 
 ## A table
 
-Play with the table below - add rows, columns, change column alignment.
+Play with the table below - add rows, columns, change column alignment. When editing, 
+you can navigate the cells with `enter`, `shift+enter`, `tab` and `shift+tab`.
 
 | Item              | In Stock | Price |
 | :---------------- | :------: | ----: |
