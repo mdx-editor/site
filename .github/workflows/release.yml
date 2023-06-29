@@ -97,10 +97,11 @@ jobs:
           npm run build
 
       - name: Upload artifact
-              uses: actions/upload-pages-artifact@v1
-              with:
-                path: ./out
-  # Deployment job
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./out
+
+# Deployment job
   deploy:
     environment:
       name: github-pages
