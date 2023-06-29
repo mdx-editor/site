@@ -59,11 +59,18 @@ jobs:
       - name: Build API reference docs
         working-directory: temp/editor
         run: |
+          mkdir etc
           pnpm install
+          pnpm build
           pnpm build:docs:api
           mv docs/api ../../api-ref
 
       - name: build the Site
-        run: 
-          npm install
+        run: |
+          npm install --legacy-peer-deps
           npm run build
+
+      - name: Push to gh-pages
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          folder: out # The folder the action should deploy.
