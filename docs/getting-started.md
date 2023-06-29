@@ -10,16 +10,16 @@ You've decided to give MDXEditor a try? That's great, because it does not take a
 
 ## Installation
 
-To use MDXEditor to your project, install the `mdxeditor` NPM package in your react project:
+To use MDXEditor to your project, install the `@mdxeditor/editor` NPM package in your react project:
 
 ```sh
-npm install --save mdxeditor
+npm install --save @mdxeditor/editor
 ```
 
 Then, include the React component somewhere in your application:
 
 ```tsx
-import {MDXEditor} from 'mdxeditor';
+import {MDXEditor} from '@mdxeditor/editor';
 
 export default function App() {
   return (
@@ -31,7 +31,7 @@ export default function App() {
 To obtain the value of the editor, you can use the `onChange` prop. The event is triggered continuously as the user types, so you can use it to update your state.
 
 ```tsx
-import {MDXEditor} from 'mdxeditor';
+import {MDXEditor} from '@mdxeditor/editor';
 
 export default function App() {
   return (
@@ -51,7 +51,7 @@ MDXEditor is a rich, client-side component that does not benefit from server-sid
 import dynamic from 'next/dynamic'
 
 const MDXEditor = dynamic(
-  () => import('mdxeditor').then((mod) => mod.MDXEditor), 
+  () => import('@mdxeditor/editor').then((mod) => mod.MDXEditor), 
   { ssr: false }
 )
 ```
