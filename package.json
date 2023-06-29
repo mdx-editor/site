@@ -26,7 +26,7 @@
     "mdast-util-gfm-table": "^1.0.7",
     "mdast-util-to-markdown": "^1.5.0",
     "mdast-util-toc": "^6.1.1",
-    "mdxeditor": "file:../editor/mdxeditor-0.0.1.tgz",
+    "@mdxeditor/editor": "^0.1.0",
     "micromark-extension-frontmatter": "^1.1.1",
     "micromark-extension-gfm-table": "^2.0.0",
     "next": "^13.4.4",
