@@ -2,7 +2,7 @@ name: Publish Site
 on:
   push:
     branches:
-      - main
+      - master
 
 permissions:
   contents: read # for checkout
@@ -62,3 +62,8 @@ jobs:
           pnpm install
           pnpm build:docs:api
           mv docs/api ../../api-ref
+
+      - name: build the Site
+        run: 
+          npm install
+          npm run build
