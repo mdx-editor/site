@@ -1,5 +1,5 @@
 'use client'
-import { ToolbarComponents } from 'mdxeditor'
+import { ToolbarComponents } from '@mdxeditor/editor'
 import MDXEditor from './editor'
 
 const HomepageEditor: React.FC = () => {
