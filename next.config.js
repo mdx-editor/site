@@ -10,4 +10,7 @@ const nextConfig = {
   },
 }
  
-module.exports = withSvgr(withMDX(nextConfig))
+module.exports = withSvgr({...withMDX(nextConfig), svgrOptions: {
+  svgo: true,
+  replaceAttrValues: { '#000' : 'currentColor' }
+}})

@@ -46,6 +46,9 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
               <li>
                 <Link href="/editor/docs/getting-started">Docs</Link>
               </li>
+              <li>
+                <Link href="/editor/api/editor">API Reference</Link>
+              </li>
             </ul>
             <Link href="https://github.com" className="flex items-center gap-1 ml-auto">
               <GithubLogo width={14} height={14} alt="Github logo" />

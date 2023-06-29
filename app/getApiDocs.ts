@@ -5,7 +5,7 @@ import { fromMarkdown } from 'mdast-util-from-markdown'
 import { MarkdownApiRefDocument, TypeFieldMap, ApiRefNode, RefNodeField } from './apiDocsStructures'
 
 export function getApiDocs(directoryPath: string) {
-  const markdownFiles: MarkdownApiRefDocument[] = []
+  const docs: MarkdownApiRefDocument[] = []
 
   const files = fs.readdirSync(directoryPath)
   const markdownRegex = /\.md$/i
@@ -17,8 +17,9 @@ export function getApiDocs(directoryPath: string) {
 
   markdownFilesPaths.forEach((filePath) => {
     const thePath = path.join(directoryPath, filePath)
-    // remove the html comment from the start
-    const content = fs.readFileSync(thePath, 'utf-8').split('\n').slice(2).join('\n')
+    // remove the html comment and bradcrumbs from the start
+    // and make the first heading heading 1
+    const content = fs.readFileSync(thePath, 'utf-8').split('\n').slice(4).join('\n').replace('##', '#')
     const slug = path.parse(filePath).name
 
     const tree = fromMarkdown(content)
@@ -27,22 +28,22 @@ export function getApiDocs(directoryPath: string) {
     const slugParts = slug.split('.')
 
     if (title) {
-      markdownFiles.push({ slug, content, title, type, slugParts })
+      docs.push({ slug, content, title, type, slugParts })
     }
   })
 
-  markdownFiles.sort((a, b) => {
+  docs.sort((a, b) => {
     return a.slugParts.length - b.slugParts.length || (a.slugParts.at(-1)?.localeCompare(b.slugParts.at(-1) as string) as number)
   })
 
   const apiRefNodes = new Map<string, ApiRefNode>()
   const root = {
-    document: markdownFiles[0],
+    document: docs[0],
     packages: [],
   }
   apiRefNodes.set('index', root)
 
-  markdownFiles.forEach((file) => {
+  docs.forEach((file) => {
     if (file.slug === 'index') {
       return
     }
@@ -71,5 +72,5 @@ export function getApiDocs(directoryPath: string) {
     apiRefNodes.set(file.slug, refNode)
   })
 
-  return { root, markdownFiles }
+  return { root, docs }
 }

@@ -1,6 +1,5 @@
 /* eslint-disable @typescript-eslint/no-unsafe-assignment */
 'use client'
-import React from 'react'
 import { Highlight } from 'prism-react-renderer'
 
 const Prism = ({ code, language, fromLine, toLine }: { code: string; language: string; fromLine: number; toLine: number }) => (

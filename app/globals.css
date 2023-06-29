@@ -64,6 +64,32 @@
       }
     }
   }
+
+  .api-ref-nav > dl > dd > dl {
+    @apply pl-2;
+  }
+
+  .doc-nav {
+    & a:hover {
+      @apply text-accent-text;
+    }
+
+    & a[data-current=true] {
+      @apply text-accent-text cursor-default;
+
+    }
+  }
+
+  h2#classes + table,
+  h2#functions + table,
+  h2#interfaces + table,
+  h2#type-aliases + table
+  {
+    & td:first-child, 
+    & tr:first-child {
+      width: 50%;
+    }
+  }
 }
 
 

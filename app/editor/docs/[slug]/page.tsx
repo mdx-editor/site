@@ -6,9 +6,9 @@ import { frontmatterFromMarkdown } from 'mdast-util-frontmatter'
 import { toMarkdown } from 'mdast-util-to-markdown'
 import { frontmatter } from 'micromark-extension-frontmatter'
 import { toc } from 'mdast-util-toc'
-import rehypeHighlight from 'rehype-highlight'
 import rehypePrism from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
+import { DocsLayout } from '../../DocsLayout'
 /* eslint-disable react-refresh/only-export-components */
 
 export function generateStaticParams() {
@@ -36,25 +36,21 @@ export default function Page({ params }: { params: PageParams }) {
   const tocMarkdown = toMarkdown(tocTree.map!.children[0].children[1]!)
 
   return (
-    <div className="flex gap-4 p-4">
-      <div className="w-2/12 leading-8 ">
-        <nav>
+    <DocsLayout
+      nav={
+        <nav className="doc-nav">
           <ul>
             {docs.map((doc) => (
               <li key={doc.slug}>
-                <Link
-                  className="hover:text-accent-text transition-colors data-[current=true]:text-accent-text"
-                  href={`/editor/docs/${doc.slug}`}
-                  data-current={params.slug === doc.slug}
-                >
+                <Link href={`/editor/docs/${doc.slug}`} data-current={params.slug === doc.slug}>
                   {doc.title}
                 </Link>
               </li>
             ))}
           </ul>
         </nav>
-      </div>
-      <div className="flex-grow prose w-7/12 max-w-full">
+      }
+      content={
         <MDXRemote
           source={doc.content}
           options={{
@@ -62,12 +58,8 @@ export default function Page({ params }: { params: PageParams }) {
             parseFrontmatter: true,
           }}
         />
-      </div>
-      <div className="w-2/12">
-        <div className="border-l-accent-solid border-dotted border-l-2 pl-2 font-light text-sm leading-7">
-          <MDXRemote source={tocMarkdown} />
-        </div>
-      </div>
-    </div>
+      }
+      pageNav={<MDXRemote source={tocMarkdown} />}
+    />
   )
 }
