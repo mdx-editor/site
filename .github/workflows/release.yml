@@ -64,7 +64,6 @@ jobs:
           pnpm build
           pnpm build:docs:api
           mv docs/api ../../api-ref
-          rm -rf .
 
       - name: Next Cache
         uses: actions/cache@v3
@@ -80,6 +79,7 @@ jobs:
 
       - name: build the Site
         run: |
+          rm -rf temp/editor/node_modules
           npm install --legacy-peer-deps
           npm run build
 
