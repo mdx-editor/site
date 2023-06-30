@@ -32,14 +32,14 @@ export const metadata = {
 
 const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
-    <html lang="en" className={`bg-neutral-base text-neutral-textContrast ${inter.variable} ${source.variable} ${ibmPlexMono.variable}`}>
+    <html lang="en" className={`bg-white text-neutral-textContrast ${inter.variable} ${source.variable} ${ibmPlexMono.variable}`}>
       <body>
-        <header className="lg:max-w-7xl mx-auto flex items-baseline px-4 pt-4 pb-2 border-accent-solid border-dotted border-b-2 [&_a:hover]:text-accent-text [&_a]:transition-colors gap-4 mb-9">
+        <header className="lg:max-w-7xl mx-auto flex items-baseline px-4 pt-4 pb-2 border-neutral-border border-dashed border-b-[1px] [&_a:hover]:text-accent-text [&_a]:transition-colors gap-4 mb-9">
           <Link href="/" className="inline-block">
             <Logo alt="MDX Editor" width={239} height={39} className="block translate-y-1" />
           </Link>
           <nav className="flex flex-grow font-mono font-normal pb-1">
-            <ul className="flex gap-4">
+            <ul className="flex gap-6">
               <li>
                 <Link href="/editor/demo">Live demo</Link>
               </li>

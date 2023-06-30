@@ -92,7 +92,6 @@ jobs:
 
       - name: build the Site
         run: |
-          rm -rf temp/editor/node_modules
           npm install --legacy-peer-deps
           npm run build
 
