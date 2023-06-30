@@ -6,6 +6,7 @@ const HomepageEditor: React.FC = () => {
   return (
     <MDXEditor
       markdown="# Hello world"
+      contentEditableClassName="prose"
       toolbarComponents={[
         ToolbarComponents.BoldItalicUnderlineButtons,
         ToolbarComponents.ToolbarSeparator,

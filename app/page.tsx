@@ -3,6 +3,7 @@ import { twMerge } from 'tailwind-merge'
 import HomepageEditor from './homepage-editor'
 import Prism from './prism-renderer'
 import { FeatureOverviewItem } from './FeatureOverviewItem'
+import SlashedArrowIcon from './images/slashed_arrow.svg'
 
 function twElement<T extends keyof JSX.IntrinsicElements>(elemTagName: T, className: string) {
   return ({ className: classNameProp, ...props }: JSX.IntrinsicElements[T]) => {
@@ -14,7 +15,7 @@ const ActionLinkButton = twElement(
   'a',
   'border-solid border-[1px] rounded-md border-neutral-textContrast px-8 py-3 bg-white font-mono text-sm'
 )
-const ActionLink = twElement('a', 'block mt-5 text-accent-text after:content-["/>"] after:ml-2 after:font-mono')
+const ActionLink = twElement('a', 'block mt-5 text-accent-text  [&_svg]:inline')
 
 const codeSample1 = `
 <MdxEditor
@@ -76,7 +77,9 @@ export default function Home() {
           </h2>
           <p className="text-lg">No more need for edit ↔ preview. Style the rich text with the same styles as your actual page.</p>
 
-          <ActionLink href="#">Read more about content styling</ActionLink>
+          <ActionLink href="#">
+            Read more about content styling <SlashedArrowIcon />
+          </ActionLink>
         </div>
         {/* stage 3 */}
         <div>
@@ -87,7 +90,9 @@ export default function Home() {
             your code blocks, powered by sandpack.
           </p>
 
-          <ActionLink href="#">Code blocks docs</ActionLink>
+          <ActionLink href="#">
+            Code blocks docs <SlashedArrowIcon />
+          </ActionLink>
         </div>
         <div className="flex items-stretch">
           <Prism code={codeSample2} language="tsx" fromLine={0} toLine={0} />
@@ -98,7 +103,7 @@ export default function Home() {
 
       <ul className="grid grid-cols-3 gap-6 list-[circle] list-inside mx-4 text-lg marker:text-accent-text">
         <li>
-          <FeatureOverviewItem title="Table Editor">
+          <FeatureOverviewItem title="Table editor">
             <p className="mb-4">Edit markdown tables with in a dedicated inline UI built for the markdown table syntax.</p>
             <p>Insert rows and columns, and manage column alignment.</p>
           </FeatureOverviewItem>
@@ -115,15 +120,57 @@ export default function Home() {
             <p>Provide autocomplete suggestions for the URL input field through a component prop.</p>
           </FeatureOverviewItem>
         </li>
-        <li>Image insert dialog</li>
-        <li>Frontmatter editor</li>
-        <li>Markdown shortcuts</li>
-        <li>Diff view</li>
-        <li>Source view</li>
-        <li>Markdown format configuration</li>
-        <li>Extensibility API</li>
-        <li>MarkdownX component editors</li>
-        <li>Customizable Toolbar</li>
+        <li>
+          <FeatureOverviewItem title="Frontmatter editor">
+            <p className="mb-4">A property key-value panel that lets editor edit the markdown document frontmatter.</p>
+          </FeatureOverviewItem>
+        </li>
+        <li>
+          <FeatureOverviewItem title="Markdown shortcuts">
+            <p className="mb-4">
+              Use <code>``</code> to start a code block, <code># </code> to start a heading, etc.
+            </p>
+          </FeatureOverviewItem>
+        </li>
+        <li>
+          <FeatureOverviewItem title="Diff/source view">
+            <p className="mb-4">
+              A switch in the toolbar lets the user preview a diff view of the document, or edit the markdown source as a plain text.
+            </p>
+          </FeatureOverviewItem>
+        </li>
+        <li>
+          <FeatureOverviewItem title="Markdown format configuration">
+            <p className="mb-4">
+              By configuring the markdown options prop, you can customize the markdown syntax (i.e.bullets) that the editor will output.
+            </p>
+          </FeatureOverviewItem>
+        </li>
+
+        <li>
+          <FeatureOverviewItem title="Extensibility API">
+            <p className="mb-4">
+              Inject your own toolbar items, and extend the markdown import/export logic. Embed custom editor components within the editor
+              through the Lexical framework.
+            </p>
+          </FeatureOverviewItem>
+        </li>
+
+        <li>
+          <FeatureOverviewItem title="MarkdownX Components">
+            <p className="mb-4">
+              Inline/block property editors allow users to change the component instance properties and the child markdown.
+            </p>
+          </FeatureOverviewItem>
+        </li>
+        <li>
+          <FeatureOverviewItem title="Customizable toolbar">
+            <p className="mb-4">
+              Inject your own toolbar items, , change the order of the existing ones, or remove the ones you do not need. Nobody would judge
+              you ;).
+            </p>
+          </FeatureOverviewItem>
+        </li>
       </ul>
     </>
   )
