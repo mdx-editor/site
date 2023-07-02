@@ -4,7 +4,7 @@
 
 @layer components {
   .my-line-highlight span.token {
-    @apply bg-dark-neutral-border;
+    @apply bg-neutral-border;
   }
 
   .prose {
@@ -89,10 +89,5 @@
     & tr:first-child {
       width: 50%;
     }
-  }
-
-
-  .token.selector, .token.attr-name, .token.string, .token.char, .token.builtin, .token.deleted  {
-    @apply text-pink-400;
   }
 }

@@ -1,5 +1,5 @@
 import '@mdxeditor/editor/style.css'
-import 'prism-themes/themes/prism-vsc-dark-plus.css'
+import 'prism-themes/themes/prism-one-light.css'
 import './globals.css'
 
 import Logo from './images/MDXEditor.svg'
