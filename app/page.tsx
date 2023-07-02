@@ -26,16 +26,15 @@ const codeSample1 = `
 `.trim()
 
 const codeSample2 = `
-\`\`\`jsx live
+const markdown = \`
+\\\`\\\`\\\`jsx live
 export default function App() {
-  return (
-    <div className="App">
-      <h1>Hello Sandbox</h1>
-      <h2>Start editing to see some magic happen!</h2>
-    </div>
-  );
+  return (<h1>Hello Sandbox</h1>);
 }
-\`\`\`
+\\\`\\\`\\\`
+\`
+
+return <MdxEditor markddown={markdown} />
 `.trim()
 
 export default function Home() {
@@ -95,7 +94,7 @@ export default function Home() {
           </ActionLink>
         </div>
         <div className="flex items-stretch">
-          <Prism code={codeSample2} language="tsx" fromLine={0} toLine={0} />
+          <Prism code={codeSample2} language="tsx" fromLine={1} toLine={1} />
         </div>
       </div>
 
