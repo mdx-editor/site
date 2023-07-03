@@ -76,7 +76,7 @@ export default function Home() {
           </h2>
           <p className="text-lg">No more need for edit ↔ preview. Style the rich text with the same styles as your actual page.</p>
 
-          <ActionLink href="#">
+          <ActionLink href="editor/docs/content-styling">
             Read more about content styling <SlashedArrowIcon />
           </ActionLink>
         </div>
@@ -89,7 +89,7 @@ export default function Home() {
             your code blocks, powered by sandpack.
           </p>
 
-          <ActionLink href="#">
+          <ActionLink href="editor/docs/code-blocks">
             Code blocks docs <SlashedArrowIcon />
           </ActionLink>
         </div>

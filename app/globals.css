@@ -10,6 +10,10 @@
   .prose {
     & code {
       @apply text-secondary-text;
+
+      &:before, &:after {
+        @apply text-accent-text;
+      }
     }
 
     & a {
