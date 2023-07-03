@@ -35,12 +35,12 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   return (
     <html lang="en" className={`bg-white text-neutral-textContrast ${inter.variable} ${source.variable} ${ibmPlexMono.variable}`}>
       <body>
-        <header className="lg:max-w-7xl mx-auto flex items-baseline px-4 pt-4 pb-2 border-neutral-border border-dashed border-b-[1px] [&_a:hover]:text-accent-text [&_a]:transition-colors gap-4 mb-9">
-          <Link href="/" className="inline-block">
+        <header className="lg:max-w-7xl mx-auto md:flex items-baseline px-4 pt-4 pb-2 border-neutral-border border-dashed border-b-[1px] [&_a:hover]:text-accent-text [&_a]:transition-colors gap-4 mb-9">
+          <Link href="/" className="block pb-2 md:pb-0">
             <Logo alt="MDX Editor" width={239} height={39} className="block translate-y-1" />
           </Link>
-          <nav className="flex flex-grow font-mono font-normal pb-1">
-            <ul className="flex gap-6">
+          <nav className="md:flex flex-grow font-mono font-normal pb-1">
+            <ul className="md:flex gap-6 pb-4 lg:pb-0">
               <li>
                 <Link href="/editor/demo">Live demo</Link>
               </li>
@@ -58,8 +58,8 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
           </nav>
         </header>
         <main className="py-2 lg:max-w-7xl mx-auto">{children}</main>
-        <footer className="lg:max-w-7xl mx-auto flex items-baseline px-4 pt-4 pb-2 border-neutral-border border-dashed border-t-[1px] [&_a:hover]:text-accent-text [&_a]:transition-colors gap-4 mt-9 mb-4 text-sm">
-          Copyright © 2023 Petyo Ivanov
+        <footer className="lg:max-w-7xl mx-auto md:flex items-baseline px-4 pt-4 pb-2 border-neutral-border border-dashed border-t-[1px] [&_a:hover]:text-accent-text [&_a]:transition-colors gap-4 mt-9 mb-4 text-sm">
+          <span className="block mb-2 md:mb-0">Copyright © 2023 Petyo Ivanov</span>
           <nav className="ml-auto">
             <ul className="flex gap-6">
               <li>

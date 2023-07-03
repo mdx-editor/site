@@ -98,6 +98,13 @@
   .feature-overview-popover {
     & a {
       @apply text-accent-text;
+
+      & svg {
+        @apply inline;
+      }
+    }
+    & p {
+      @apply mb-4;
     }
   }
 }

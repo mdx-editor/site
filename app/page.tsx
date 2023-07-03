@@ -40,7 +40,7 @@ return <MdxEditor markdown={markdown} />
 export default function Home() {
   return (
     <>
-      <div className="grid grid-cols-2 gap-y-8 xl:gap-y-16 [&>div]:p-4 [&>div]:py-6 mb-8 xl:mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 xl:gap-y-16 [&>div]:p-4 [&>div]:py-6 mb-8 xl:mb-16">
         <div>
           <h2 className="font-mono text-2xl font-normal mb-4">
             <span className="underline">Markdown</span> editing can be <br />
@@ -131,39 +131,51 @@ export default function Home() {
 
       <h2 className="font-mono text-2xl mb-8 text-center">Feature overview</h2>
 
-      <ul className="grid grid-cols-3 gap-6 list-[circle] list-inside mx-4 text-lg marker:text-accent-text">
+      <ul className="grid grid-cols-1 lg:grid-cols-3 gap-6 list-[circle] list-inside mx-4 text-lg marker:text-accent-text">
         <li>
           <FeatureOverviewItem title="Table editor">
-            <p className="mb-4">Edit markdown tables with in a dedicated inline UI built for the markdown table syntax.</p>
-            <p className="mb-4">Insert rows and columns, and manage column alignment.</p>
+            <p>Edit markdown tables with in a dedicated inline UI built for the markdown table syntax.</p>
+            <p>Insert rows and columns, and manage column alignment.</p>
             <p>
-              <a href="editor/demo">Test in the live demo</a>
+              <a href="editor/demo">
+                Test in the live demo <SlashedArrowIcon />
+              </a>
             </p>
           </FeatureOverviewItem>
         </li>
         <li>
           <FeatureOverviewItem title="Link dialog">
-            <p className="mb-4">
+            <p>
               Users can insert links with a <code>Cmd+K</code> or through the toolbar button.
             </p>
             <p>Wire up autocomplete suggestions for the URL input field through a component prop.</p>
             <p>
-              <a href="editor/demo">Test in the live demo</a>
+              <a href="editor/demo">
+                Test in the live demo <SlashedArrowIcon />
+              </a>
             </p>
           </FeatureOverviewItem>
         </li>
         <li>
           <FeatureOverviewItem title="Image dialog">
-            <p className="mb-4">Users can insert images with a toolbar button.</p>
+            <p>Users can insert images with a toolbar button.</p>
             <p>Provide autocomplete suggestions for the URL input field through a component prop.</p>
             <p>
-              <a href="editor/demo">Test in the live demo</a>
+              <a href="editor/demo">
+                Test in the live demo <SlashedArrowIcon />
+              </a>
             </p>
           </FeatureOverviewItem>
         </li>
         <li>
           <FeatureOverviewItem title="Frontmatter editor">
-            <p className="mb-4">A property key-value panel that lets editor edit the markdown document frontmatter.</p>
+            <p>A property key-value panel that lets editor edit the markdown document frontmatter.</p>
+
+            <p>
+              <a href="editor/demo">
+                Test in the live demo <SlashedArrowIcon />
+              </a>
+            </p>
           </FeatureOverviewItem>
         </li>
         <li>
@@ -173,7 +185,10 @@ export default function Home() {
             </p>
 
             <p className="mb-4">
-              <a href="editor/docs/markdown-shortcuts">Full list</a>
+              <a href="editor/docs/markdown-shortcuts">
+                Full list
+                <SlashedArrowIcon />
+              </a>
             </p>
           </FeatureOverviewItem>
         </li>
@@ -183,20 +198,9 @@ export default function Home() {
               A switch in the toolbar lets the user preview a diff view of the document, or edit the markdown source as a plain text.
             </p>
             <p>
-              <a href="editor/demo">Test in the live demo</a>
-            </p>
-          </FeatureOverviewItem>
-        </li>
-
-        <li>
-          <FeatureOverviewItem title="Extensibility API">
-            <p className="mb-4">
-              Inject your own toolbar items, and extend the markdown import/export logic. Embed custom editor components within the editor
-              through the Lexical framework.
-            </p>
-
-            <p className="mb-4">
-              <a href="editor/docs/customizing-toolbar">How to customize the toolbar</a>
+              <a href="editor/demo">
+                Test in the live demo <SlashedArrowIcon />
+              </a>
             </p>
           </FeatureOverviewItem>
         </li>
@@ -206,6 +210,13 @@ export default function Home() {
             <p className="mb-4">
               Inline/block property editors allow users to change the component instance properties and the child markdown.
             </p>
+
+            <p>
+              <a href="editor/api/editor.jsxcomponentdescriptor">
+                JsxComponentDescriptor API Reference
+                <SlashedArrowIcon />
+              </a>
+            </p>
           </FeatureOverviewItem>
         </li>
         <li>
@@ -213,6 +224,12 @@ export default function Home() {
             <p className="mb-4">
               Inject your own toolbar items, , change the order of the existing ones, or remove the ones you do not need. Nobody would judge
               you ;).
+            </p>
+
+            <p>
+              <a href="editor/docs/customizing-toolbar">
+                How to customize the toolbar <SlashedArrowIcon />
+              </a>
             </p>
           </FeatureOverviewItem>
         </li>
