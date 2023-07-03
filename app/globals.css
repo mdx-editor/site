@@ -94,4 +94,10 @@
       width: 50%;
     }
   }
+
+  .feature-overview-popover {
+    & a {
+      @apply text-accent-text;
+    }
+  }
 }

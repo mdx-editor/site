@@ -34,7 +34,7 @@ export default function App() {
 \\\`\\\`\\\`
 \`
 
-return <MdxEditor markddown={markdown} />
+return <MdxEditor markdown={markdown} />
 `.trim()
 
 export default function Home() {
@@ -96,6 +96,37 @@ export default function Home() {
         <div className="flex items-stretch">
           <Prism code={codeSample2} language="tsx" fromLine={1} toLine={1} />
         </div>
+        {/* stage 4 */}
+        <div className="flex items-stretch">
+          <Prism
+            code={`
+<MdxEditor
+  markdown={markdown}
+  lexicalConvertOptions={
+  options: {
+    bullet: '+', 
+    emphasis: '_'
+    }
+  }
+/>
+          `.trim()}
+            language="tsx"
+            fromLine={2}
+            toLine={7}
+          />
+        </div>
+        <div>
+          <h2 className="font-mono text-2xl mb-4">Markdown formatting as you like it</h2>
+
+          <p className="text-lg">
+            The markdown contents are processed through an AST parsing step, which allows you to customize the markdown formatting. This
+            also guarantees consistent formatting across all documents.
+          </p>
+
+          <ActionLink href="editor/docs/markdown-processing">
+            Markdown processing explained <SlashedArrowIcon />
+          </ActionLink>
+        </div>
       </div>
 
       <h2 className="font-mono text-2xl mb-8 text-center">Feature overview</h2>
@@ -104,19 +135,30 @@ export default function Home() {
         <li>
           <FeatureOverviewItem title="Table editor">
             <p className="mb-4">Edit markdown tables with in a dedicated inline UI built for the markdown table syntax.</p>
-            <p>Insert rows and columns, and manage column alignment.</p>
+            <p className="mb-4">Insert rows and columns, and manage column alignment.</p>
+            <p>
+              <a href="editor/demo">Test in the live demo</a>
+            </p>
           </FeatureOverviewItem>
         </li>
         <li>
           <FeatureOverviewItem title="Link dialog">
-            <p className="mb-4">Users can insert links with a convenient keyboard shorctut or through the toolbar button.</p>
+            <p className="mb-4">
+              Users can insert links with a <code>Cmd+K</code> or through the toolbar button.
+            </p>
             <p>Wire up autocomplete suggestions for the URL input field through a component prop.</p>
+            <p>
+              <a href="editor/demo">Test in the live demo</a>
+            </p>
           </FeatureOverviewItem>
         </li>
         <li>
           <FeatureOverviewItem title="Image dialog">
             <p className="mb-4">Users can insert images with a toolbar button.</p>
             <p>Provide autocomplete suggestions for the URL input field through a component prop.</p>
+            <p>
+              <a href="editor/demo">Test in the live demo</a>
+            </p>
           </FeatureOverviewItem>
         </li>
         <li>
@@ -129,6 +171,10 @@ export default function Home() {
             <p className="mb-4">
               Use <code>``</code> to start a code block, <code># </code> to start a heading, etc.
             </p>
+
+            <p className="mb-4">
+              <a href="editor/docs/markdown-shortcuts">Full list</a>
+            </p>
           </FeatureOverviewItem>
         </li>
         <li>
@@ -136,12 +182,8 @@ export default function Home() {
             <p className="mb-4">
               A switch in the toolbar lets the user preview a diff view of the document, or edit the markdown source as a plain text.
             </p>
-          </FeatureOverviewItem>
-        </li>
-        <li>
-          <FeatureOverviewItem title="Markdown format configuration">
-            <p className="mb-4">
-              By configuring the markdown options prop, you can customize the markdown syntax (i.e.bullets) that the editor will output.
+            <p>
+              <a href="editor/demo">Test in the live demo</a>
             </p>
           </FeatureOverviewItem>
         </li>
@@ -151,6 +193,10 @@ export default function Home() {
             <p className="mb-4">
               Inject your own toolbar items, and extend the markdown import/export logic. Embed custom editor components within the editor
               through the Lexical framework.
+            </p>
+
+            <p className="mb-4">
+              <a href="editor/docs/customizing-toolbar">How to customize the toolbar</a>
             </p>
           </FeatureOverviewItem>
         </li>
