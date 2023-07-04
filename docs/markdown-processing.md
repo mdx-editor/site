@@ -33,7 +33,7 @@ After the mdast tree is constructed, it's walked recursively through a set of [m
 
 You can change the used mdast import visitors by passing an array of mdast import visitors to the `markdownParseOptions.visitors` property field. Similar to the previous step, you can obtain the default set of visitors from the `markdownParse.defaultVisitors` field of the `defaultMdxOptionsValue` export. For further details on how to implement your own visitor, refer to the [`MdastImportVisitor` interface API reference](../api/editor.mdastimportvisitor).
 
-Notice that when creating your own visitor, you might have to implement a new Lexical node (and, potentially, a react component that acts as an editor) as well. To do so, [consult the Lexical docs](https://lexical.dev/docs/concepts/nodes), and browse the MDXEditor source code itself for further details on how this can be done. If you create a new node, you should pass it in [the lexicalNodes array](../api/editor.mdxeditorprops.lexicalnodes) - grab the default value from the `defaultLexicalNodes` field of the `defaultMdxOptionValues` module export.
+Notice that when creating your own visitor, you might have to implement a new Lexical node (and, potentially, a React component that acts as an editor) as well. To do so, [consult the Lexical docs](https://lexical.dev/docs/concepts/nodes), and browse the MDXEditor source code itself for further details on how this can be done. If you create a new node, you should pass it in [the lexicalNodes array](../api/editor.mdxeditorprops.lexicalnodes) - grab the default value from the `defaultLexicalNodes` field of the `defaultMdxOptionValues` module export.
 
 ### Lexical tree to mdast tree step
 

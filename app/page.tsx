@@ -1,9 +1,11 @@
 import { createElement, JSX } from 'react'
 import { twMerge } from 'tailwind-merge'
 import HomepageEditor from './homepage-editor'
-import Prism from './prism-renderer'
+import SampleCodeBlock from './sample-code-block'
 import { FeatureOverviewItem } from './FeatureOverviewItem'
 import SlashedArrowIcon from './images/slashed_arrow.svg'
+import Image from 'next/image'
+import SandpackScreenshot from './images/sandpack-screenshot.png'
 
 function twElement<T extends keyof JSX.IntrinsicElements>(elemTagName: T, className: string) {
   return ({ className: classNameProp, ...props }: JSX.IntrinsicElements[T]) => {
@@ -68,7 +70,13 @@ export default function Home() {
         </div>
         {/* stage 2 */}
         <div className="flex items-stretch">
-          <Prism code={codeSample1} language="tsx" fromLine={3} toLine={3} />
+          <SampleCodeBlock
+            title="Style the content editable area with your content CSS class"
+            code={codeSample1}
+            language="tsx"
+            fromLine={3}
+            toLine={3}
+          />
         </div>
         <div>
           <h2 className="font-mono text-2xl mb-4">
@@ -86,19 +94,20 @@ export default function Home() {
           <h2 className="font-mono text-2xl mb-4">Code blocks with syntax highlighting, auto-complete, and live preview</h2>
 
           <p className="text-lg">
-            No more code samples with sneaky syntax errors. Live preview of the snippet result, powered by sandpack.
+            No more code samples with sneaky syntax errors. Live preview of the snippet result, powered by Sandpack.
           </p>
 
           <ActionLink href="editor/docs/code-blocks">
             Code blocks docs <SlashedArrowIcon />
           </ActionLink>
         </div>
-        <div className="flex items-stretch">
-          <Prism code={codeSample2} language="tsx" fromLine={1} toLine={1} />
+        <div>
+          <Image src={SandpackScreenshot} alt="Sandpack screenshot" />
         </div>
         {/* stage 4 */}
         <div className="flex items-stretch">
-          <Prism
+          <SampleCodeBlock
+            title="Use + as a bullet sign, and _ as emphasis"
             code={`
 <MdxEditor
   markdown={markdown}
@@ -116,11 +125,11 @@ export default function Home() {
           />
         </div>
         <div>
-          <h2 className="font-mono text-2xl mb-4">Markdown formatting as you like it</h2>
+          <h2 className="font-mono text-2xl mb-4">Consistent, configurable markdown output</h2>
 
           <p className="text-lg">
-            The markdown contents are processed through an AST parsing step, which allows you to customize the markdown formatting. This
-            also guarantees consistent formatting across all documents.
+            The component exposes properties that allow you to tune how the editor AST gets converted to markdown. This lets you choose the
+            bullet style, the whitespace settings, the emphasis markers and much more.
           </p>
 
           <ActionLink href="editor/docs/markdown-processing">

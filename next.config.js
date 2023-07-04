@@ -8,9 +8,14 @@ const nextConfig = {
   experimental: {
     mdxRs: true,
   },
+  images: {
+    unoptimized: true,
+  }
 }
  
-module.exports = withSvgr({...withMDX(nextConfig), svgrOptions: {
+const svgrOptions = {
   svgo: true,
-  replaceAttrValues: { '#000' : 'currentColor' }
-}})
+  replaceAttrValues: { '#000': 'currentColor' }
+};
+
+module.exports = withSvgr({...withMDX(nextConfig), svgrOptions})

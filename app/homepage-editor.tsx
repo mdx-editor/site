@@ -24,7 +24,7 @@ There's a lot more you can find in [live demo](editor/demo).
 `
 const HomepageEditor: React.FC = () => {
   return (
-    <div className=" overflow-y-auto max-h-56">
+    <div className=" overflow-y-auto max-h-[236px]">
       <MDXEditor
         markdown={markdown}
         contentEditableClassName="prose"

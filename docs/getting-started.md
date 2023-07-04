@@ -10,7 +10,7 @@ You've decided to give MDXEditor a try? That's great, because it does not take a
 
 ## Installation
 
-To use MDXEditor to your project, install the `@mdxeditor/editor` NPM package in your react project:
+To use MDXEditor to your project, install the `@mdxeditor/editor` NPM package in your React project:
 
 ```sh
 npm install --save @mdxeditor/editor
