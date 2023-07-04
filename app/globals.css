@@ -9,9 +9,11 @@
 
   .prose {
     & code {
-      @apply text-secondary-text;
+      @apply text-secondary-text bg-neutral-bgSubtle px-1;
+
 
       &:before, &:after {
+        content: none;
         @apply text-accent-text;
       }
     }

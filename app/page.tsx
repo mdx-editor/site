@@ -72,9 +72,10 @@ export default function Home() {
         </div>
         <div>
           <h2 className="font-mono text-2xl mb-4">
-            What you see is what you get. <br /> No, really!
+            No more need for edit ↔ preview.
+            <br />
           </h2>
-          <p className="text-lg">No more need for edit ↔ preview. Style the rich text with the same styles as your actual page.</p>
+          <p className="text-lg">What you see is what you get. Style the rich text with the same styles as your actual page.</p>
 
           <ActionLink href="editor/docs/content-styling">
             Read more about content styling <SlashedArrowIcon />
@@ -82,11 +83,10 @@ export default function Home() {
         </div>
         {/* stage 3 */}
         <div>
-          <h2 className="font-mono text-2xl mb-4">No more code samples with sneaky syntax errors</h2>
+          <h2 className="font-mono text-2xl mb-4">Code blocks with syntax highlighting, auto-complete, and live preview</h2>
 
           <p className="text-lg">
-            Code blocks are now editable with syntax highlighting, auto-complete and indentation. You can even configure a live preview for
-            your code blocks, powered by sandpack.
+            No more code samples with sneaky syntax errors. Live preview of the snippet result, powered by sandpack.
           </p>
 
           <ActionLink href="editor/docs/code-blocks">
@@ -181,7 +181,7 @@ export default function Home() {
         <li>
           <FeatureOverviewItem title="Markdown shortcuts">
             <p className="mb-4">
-              Use <code>``</code> to start a code block, <code># </code> to start a heading, etc.
+              Use <code>```js</code> to start a code block, <code>#</code> to start a heading, etc.
             </p>
 
             <p className="mb-4">
@@ -222,7 +222,7 @@ export default function Home() {
         <li>
           <FeatureOverviewItem title="Customizable toolbar">
             <p className="mb-4">
-              Inject your own toolbar items, , change the order of the existing ones, or remove the ones you do not need. Nobody would judge
+              Inject your own toolbar items, change the order of the existing ones, or remove the ones you do not need. Nobody will judge
               you ;).
             </p>
 

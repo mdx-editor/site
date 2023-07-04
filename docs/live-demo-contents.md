@@ -8,7 +8,6 @@ This is a **live demo** of MDXEditor with all default features on.
 
 [— Daring Fireball](https://daringfireball.net/projects/markdown/).
 
-
 In here, you can find the following markdown elements:
 
 * Headings
@@ -41,7 +40,7 @@ If you need a few ideas, here's what you can try:
 
 MDXEditor embeds CodeMirror for code editing.
 
-```tsx 
+```tsx
 export default function App() {
   return (<div>Hello world</div>)
 }
@@ -62,12 +61,12 @@ export default function App() {
 
 ## A table
 
-Play with the table below - add rows, columns, change column alignment. When editing, 
+Play with the table below - add rows, columns, change column alignment. When editing,
 you can navigate the cells with `enter`, `shift+enter`, `tab` and `shift+tab`.
 
 | Item              | In Stock | Price |
 | :---------------- | :------: | ----: |
 | Python Hat        |   True   | 23.99 |
 | SQL Hat           |   True   | 23.99 |
-| Codecademy Tee    |  False   | 19.99 |
-| Codecademy Hoodie |  False   | 42.99 |
+| Codecademy Tee    |   False  | 19.99 |
+| Codecademy Hoodie |   False  | 42.99 |

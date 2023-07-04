@@ -5,9 +5,9 @@ import MDXEditor from './editor'
 const markdown = `
 Click here to start editing this text.
 
-This is a preview of **bold**, *italic*, and <u>underline</u> formatting. 
+Here's the familiar **bold**, *italic*, and <u>underline</u> formatting. 
 
-This is a link to an awesome [React virtualization library](https://virtuoso.dev).
+You can also have links, like this link to the [awesome React virtualization library](https://virtuoso.dev).
 
 * This is a list;
 * With some items.
@@ -20,7 +20,7 @@ console.log("A javascript code block")
 
 \`\`\`
 
-See more features in the [live demo](editor/demo).
+There's a lot more you can find in [live demo](editor/demo).
 `
 const HomepageEditor: React.FC = () => {
   return (
