@@ -16,10 +16,11 @@ To use MDXEditor to your project, install the `@mdxeditor/editor` NPM package in
 npm install --save @mdxeditor/editor
 ```
 
-Then, include the React component somewhere in your application:
+Then, include the React component and the necessary styles in your application. Your solution for the styling import may vary based on the framework you use. 
 
 ```tsx
 import {MDXEditor} from '@mdxeditor/editor';
+import '@mdxeditor/editor/style.css';
 
 export default function App() {
   return (
