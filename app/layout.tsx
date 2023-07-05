@@ -69,7 +69,7 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                 <a href="https://twitter.com/petyosi">Twitter</a>
               </li>
               <li>
-                <a href="https://linkedin.com/petyo">LinkedIn</a>
+                <a href="https://www.linkedin.com/in/petyo/">LinkedIn</a>
               </li>
               <li>
                 <a href="mailto:petyo@virtuoso.dev">Email</a>
