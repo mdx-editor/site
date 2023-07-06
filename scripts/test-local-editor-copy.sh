@@ -4,5 +4,5 @@ cd ../editor
 pnpm build
 pnpm pack
 cd -
-npm install ../editor/mdxeditor-0.0.*.tgz
+npm install ../editor/mdxeditor-editor-0.0.0-development.tgz
 rm -rf .next/cache
