@@ -27,18 +27,6 @@ const codeSample1 = `
 />
 `.trim()
 
-const codeSample2 = `
-const markdown = \`
-\\\`\\\`\\\`jsx live
-export default function App() {
-  return (<h1>Hello Sandbox</h1>);
-}
-\\\`\\\`\\\`
-\`
-
-return <MdxEditor markdown={markdown} />
-`.trim()
-
 export default function Home() {
   return (
     <>
