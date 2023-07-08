@@ -44,9 +44,9 @@ export default function App() {
 }
 ```
 
-## Use in NextJS RSC
+## Usage in a NextJS App
 
-MDXEditor is a rich, client-side component that does not benefit from server-side rendering. To use it in your server components, you should use `next/dynamic`:
+MDXEditor is a rich, client-side component that does not benefit from server-side rendering or hydration. To use it in NextJS, use the following technique:
 
 ```tsx
 import dynamic from 'next/dynamic'
