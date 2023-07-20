@@ -154,12 +154,17 @@ export default function Home() {
           </FeatureOverviewItem>
         </li>
         <li>
-          <FeatureOverviewItem title="Image dialog">
-            <p>Users can insert images with a toolbar button.</p>
-            <p>Provide autocomplete suggestions for the URL input field through a component prop.</p>
+          <FeatureOverviewItem title="Image support">
+            <p>Paste, drag and drop images, or insert images from the web.</p>
+            <p>The image dialog can provide autocomplete suggestions for the image URL.</p>
             <p>
               <a href="editor/demo">
                 Test in the live demo <SlashedArrowIcon />
+              </a>
+            </p>
+            <p>
+              <a href="editor/docs/images">
+                Read the docs <SlashedArrowIcon />
               </a>
             </p>
           </FeatureOverviewItem>
