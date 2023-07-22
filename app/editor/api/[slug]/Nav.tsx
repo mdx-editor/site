@@ -55,7 +55,7 @@ const ApiRefNodeNav: React.FC<{ node: ApiRefNode }> = ({ node }) => {
                 {isExpanded &&
                   node[fieldName as Exclude<RefNodeField, 'constructor'>]!.map((child: ApiRefNode, index: number) => {
                     return (
-                      <dd key={index} className="pl-4">
+                      <dd key={index} className="pl-2">
                         <ApiRefNodeNav node={child} />
                       </dd>
                     )
@@ -74,7 +74,7 @@ const InterfaceRefNodeNav: React.FC<{ node: ApiRefNode }> = ({ node }) => {
 
   return (
     <>
-      <div className="pl-2 flex items-center">
+      <div className="flex items-center mb-3">
         <a href={node.document.slug} data-current={currentDocSlug === node.document.slug}>
           {nodeTitle(node)}
         </a>
@@ -84,7 +84,7 @@ const InterfaceRefNodeNav: React.FC<{ node: ApiRefNode }> = ({ node }) => {
         <dl>
           {node.properties.map((child: ApiRefNode, index: number) => {
             return (
-              <dd className="pl-4" key={index}>
+              <dd className="pl-2" key={index}>
                 <ApiRefNodeNav node={child} />
               </dd>
             )
@@ -101,7 +101,7 @@ const ClassRefNodeNav: React.FC<{ node: ApiRefNode }> = ({ node }) => {
 
   return (
     <>
-      <div className="pl-2 flex items-center">
+      <div className="flex items-center mb-3">
         <a href={node.document.slug} data-current={currentDocSlug === node.document.slug}>
           {nodeTitle(node)}
         </a>
@@ -122,7 +122,7 @@ const ClassRefNodeNav: React.FC<{ node: ApiRefNode }> = ({ node }) => {
                   <dt className="pl-2">{fieldName.replace(/./, (c) => c.toUpperCase())}</dt>
                   {node[fieldName as Exclude<RefNodeField, 'constructor'>]!.map((child: ApiRefNode, index: number) => {
                     return (
-                      <dd className="pl-4" key={index}>
+                      <dd className="pl-2 text-neutral-text" key={index}>
                         <ApiRefNodeNav node={child} />
                       </dd>
                     )

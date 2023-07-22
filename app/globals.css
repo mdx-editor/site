@@ -8,6 +8,7 @@
   }
 
   .prose {
+    min-width: 0;
     & code {
       @apply text-secondary-text bg-neutral-bgSubtle px-1;
 
@@ -54,9 +55,19 @@
       }
     }
 
+    & pre[class*="language-"] {
+      overflow-x: auto;
+    }
+
     & pre[class*="language-"], & code[class*="language-"] {
       @apply font-mono;
       font-size: inherit;
+    }
+
+    & pre[class*="language-"] > code {
+      @apply text-sm;
+      display: block;
+
     }
 
     & [data-editor-type=frontmatter] {
@@ -71,8 +82,38 @@
     }
   }
 
+  .api-ref-nav > a {
+    @apply mb-3;
+    display: block;
+  }
+
   .api-ref-nav > dl > dd > dl {
     @apply pl-2;
+  }
+
+  .api-ref-nav dd dd {
+    @apply mb-2;
+  }
+
+  .api-ref-nav > dl > dt {
+    @apply font-medium;
+  }
+
+  .in-page-nav {
+    @apply border-l-accent-solid border-dotted border-l-2 pl-4  text-sm sticky top-2 w-48;
+
+    p {
+      @apply mb-2;
+
+    }
+
+    li ul {
+      @apply pl-2;
+    }
+
+    li > a {
+      @apply block mb-1 text-neutral-text;
+    }
   }
 
   .doc-nav {

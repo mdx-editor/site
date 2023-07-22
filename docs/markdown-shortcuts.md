@@ -1,10 +1,10 @@
 ---
-title: Markdown Shortcuts
+title: Markdown shortcuts
 slug: markdown-shortcuts
 position: 6
 ---
 
-# Markdown keyboard Shortcuts
+# Markdown keyboard shortcuts
 
 The component enables several typing shortcuts (similar to Notion, recently ported to Google docs) that initiate the corresponding markdown blocks.
 

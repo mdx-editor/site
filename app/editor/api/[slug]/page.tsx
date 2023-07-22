@@ -21,6 +21,16 @@ interface PageParams {
   slug: string
 }
 
+export function generateMetadata({ params }: { params: PageParams }) {
+  const { docs } = getApiDocs('./api-ref')
+  const doc = docs.find((file) => file.slug === params.slug)
+  return {
+    title: `${doc?.title} | MDXEditor`,
+    description:
+      'MDXEditor is an open-source React component that lets your users edit markdown documents naturally, just like in Google docs or Notion.',
+  }
+}
+
 export default function Page({ params }: { params: PageParams }) {
   const { docs, root } = getApiDocs('./api-ref')
   const doc = docs.find((file) => file.slug === params.slug)

@@ -1,12 +1,12 @@
 ---
-title: Image Support
+title: Image support
 slug: images
 position: 7
 ---
 
-# Image Support
+# Image support
 
-The MDXEditor components lets users insert images from the web or from their local device. The images are inserted as markdown images. Users can also paste and drop multiple images at once.
+The MDXEditor component lets users insert images from the web or from their local device. The images are inserted as markdown images. Users can also paste and drop multiple images at once.
 
 ## Inserting images from the web
 

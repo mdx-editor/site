@@ -1,10 +1,10 @@
 ---
-title: Code Blocks
+title: Code blocks
 slug: code-blocks
 position: 5
 ---
 
-# Code Blocks
+# Code blocks
 
 The MDXEditor component uses dedicated code block editors for fenced code blocks. **Regular code blocks** are edited [with a codemirror editor](https://codemirror.net/) that supports syntax highlighting and basic bracket matching. 
 Code blocks marked with `live` are rendered in a [Sandpack editor](https://sandpack.codesandbox.io/), which supports live previews and more advanced features. You can configure how the sandpack editor behaves by passing a `sandpackOptions` object to the `MDXEditor` component.

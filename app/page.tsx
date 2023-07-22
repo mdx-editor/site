@@ -41,7 +41,7 @@ export default function Home() {
             delightful.
           </h2>
           <p className="text-lg">
-            MDX Editor is an open-source React component that allows <br />
+            MDXEditor is an open-source React component that allows <br />
             users to author markdown documents naturally.
             <br /> Just like in Google docs or Notion.
           </p>

@@ -1,10 +1,10 @@
 ---
-title: Getting Started
+title: Getting started
 slug: getting-started
 position: 0
 ---
 
-# Getting Started
+# Getting started
 
 You've decided to give MDXEditor a try? That's great, because it does not take a lot of effort. While powerful, the component needs little to boot. In this article, we will go through the necessary steps to reach "Hello world" state.
 
@@ -44,9 +44,9 @@ export default function App() {
 }
 ```
 
-## Usage in a NextJS App
+## Usage in a Next.js app
 
-MDXEditor is a rich, client-side component that does not benefit from server-side rendering or hydration. To use it in NextJS, use the following technique:
+MDXEditor is a rich, client-side component that does not benefit from server-side rendering or hydration. To use it in Next.js, use the following technique:
 
 ```tsx
 import dynamic from 'next/dynamic'

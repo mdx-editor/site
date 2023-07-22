@@ -1,10 +1,10 @@
 ---
-title: Markdown Processing 
+title: Markdown processing 
 slug: markdown-processing
 position: 4
 ---
 
-# Customizing Content
+# Customizing content
 
 MDXEditor exposes a few properties that let you configure the way the markdown input is imported, and converted into editable rich text. Using the Lexical framework, you can also inject custom rich text editors that will get associated with specific markdown constructs.
 

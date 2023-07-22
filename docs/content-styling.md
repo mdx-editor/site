@@ -1,10 +1,10 @@
 ---
-title: Content Styling
+title: Content styling
 slug: content-styling
 position: 1
 ---
 
-# Content Styling
+# Content styling
 
 The MDXEditor component exposes a property called `contentEditableClassName` that you can use to style the content of the editor. This is useful if you want to use a different font family, or change the contents of the various blocks inside.
 
