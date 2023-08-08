@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
 cd ../editor
-pnpm build
-pnpm build:docs:api
+npm run build
+npm run build:docs:api
 cd -
 rm -rf api-ref
 cp -r ../editor/docs/api api-ref
