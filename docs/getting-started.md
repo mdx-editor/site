@@ -16,44 +16,93 @@ To use MDXEditor to your project, install the `@mdxeditor/editor` NPM package in
 npm install --save @mdxeditor/editor
 ```
 
-Then, include the React component and the necessary styles in your application. Your solution for the styling import may vary based on the framework you use. 
+## Importing the component
+
+The MDXEditor package definition uses the [exports field](https://nodejs.org/api/packages.html#exports) to define multiple entry points. This ensures that your bundle won't include features you're not using. Notice that for the exports to work correctly, you need to use **TypeScript 5** with `--moduleResolution bundler`. [See the TypeScript documentation for more details](https://www.typescriptlang.org/docs/handbook/release-notes/typescript-5-0.html#--moduleresolution-bundler). 
+
+Following are the specifics below for the most popular React frameworks.
+
+### Next.js
+
+By default, Next.js uses `--moduleResolution node` setting in `tsconfig.json`. This means that TypeScript does not take the `exports` package.json field into account. Depending on your project, you may try to change it to `node16` or `bundler` so that you can use the named exports, which will optimize your bundle. If this is not possible, you can still use the catch all export point `@mdxeditor/editor`.
+
+
+In addition, we need to ensure that the editor component is used only on the client. Given its purpose, it makes little to no sense to do server processing. To do so, we can use the `dynamic` function from Next.js. This will ensure that the component is only loaded on the client.
 
 ```tsx
-import {MDXEditor} from '@mdxeditor/editor';
+// You can use this code in a separate component that's imported in your pages.
+'use client';
 import '@mdxeditor/editor/style.css';
-
-export default function App() {
-  return (
-    <div><MDXEditor markdown="Hello **world**!" /></div>
-  )
-}
-```
-
-To obtain the value of the editor, you can use the `onChange` prop. The event is triggered continuously as the user types, so you can use it to update your state.
-
-```tsx
-import {MDXEditor} from '@mdxeditor/editor';
-
-export default function App() {
-  return (
-    <div><MDXEditor 
-      markdown="Hello **world**!" 
-      onChange={(markdown) => console.log(markdown)} 
-    /></div>
-  )
-}
-```
-
-## Usage in a Next.js app
-
-MDXEditor is a rich, client-side component that does not benefit from server-side rendering or hydration. To use it in Next.js, use the following technique:
-
-```tsx
 import dynamic from 'next/dynamic'
 
-const MDXEditor = dynamic(
-  () => import('@mdxeditor/editor').then((mod) => mod.MDXEditor), 
+export const MDXEditor = dynamic(
+// preferred way
+  () => import('@mdxeditor/editor/MDXEditor').then((mod) => mod.MDXEditor), 
+// legacy, larger bundle
+// () => import('@mdxeditor/editor').then((mod) => mod.MDXEditor), 
   { ssr: false }
 )
 ```
 
+If you get stuck, check the [MDX editor in Next.js GitHub sample repository for a working example](https://github.com/mdx-editor/mdx-editor-in-next).
+
+### Vite
+
+MDXEditor "just works" in Vite, assuming that you use a recent version of it. The only thing you need to watch out for is for the imports to come from the specific path rather than the catch-all one, since TypeScript autocompletes both. 
+
+Here's a minimal example for App.tsx:
+
+```tsx
+import '@mdxeditor/editor/style.css'
+
+// importing the editor and the plugin from their full paths
+import { MDXEditor } from '@mdxeditor/editor/MDXEditor'
+import { headingsPlugin } from '@mdxeditor/editor/plugins/headings'
+
+function App() {
+  return (
+    <MDXEditor markdown='# Hello world' plugins={[headingsPlugin()]} />
+  )
+}
+
+export default App
+```
+
+If you get stuck, check the [MDX editor in Vite GitHub sample repository for a working example](https://github.com/mdx-editor/mdx-editor-in-vite).
+
+
+### Remix
+
+Remix seems [to struggle with ESM-only packages](https://github.com/remix-run/remix/issues/109), like MDXEditor itself and several of its dependencies. 
+There's a (relatively) working example that uses dynamic imports in the [MDX editor in Remix GitHub sample repository](https://github.com/mdx-editor/mdx-editor-in-remix).
+
+### Create React App
+
+To make MDXEditor work in a Create React App project, you need to apply the [following craco patch](https://stackoverflow.com/a/75109686) which fixes the Webpack resolution. Afterwards, you can use the editor like any other component (check the Vite example above).
+
+See the [MDX editor in CRA GitHub sample repository for a working example](https://github/com/mdx-editor/mdx-editor-in-cra).
+
+## Basic usage
+
+The MDXEditor component accepts its initial value through the `markdown` property. Notice that the property works like the [textarea `defaultValue`](https://react.dev/reference/react-dom/components/textarea#providing-an-initial-value-for-a-text-area). 
+To change the value dynamically, you should use the `setMarkdown` ref method.
+
+To listen for changes of the value of the editor, use the `onChange` callback property. The event is triggered continuously as the user types, so you can use it to update your state.
+
+Alternatively, to obtain the value of the editor, use the `getMarkdown` ref method.
+
+```tsx
+  // construct a ref to the editor
+  const ref = React.useRef<MDXEditorMethods>(null)
+  return (
+    <>
+      <button onClick={() => ref.current?.setMarkdown('new markdown')}>Set new markdown</button>
+      <button onClick={() => console.log(ref.current?.getMarkdown())}>Get markdown</button>
+      <MDXEditor ref={ref} markdown='hello world' onChange={console.log} />
+    </>
+  )
+```
+
+## Next steps
+
+The editor is now working, but it's not very useful. Depending on your use case, you are will most likely need to enable a set of additional features. Follow the links in the sidebar to learn more about each respective capability and the way to enable it.
