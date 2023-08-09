@@ -105,4 +105,20 @@ Alternatively, to obtain the value of the editor, use the `getMarkdown` ref meth
 
 ## Next steps
 
-The editor is now working, but it's not very useful. Depending on your use case, you are will most likely need to enable a set of additional features. Follow the links in the sidebar to learn more about each respective capability and the way to enable it.
+The editor is now working, but it's not very useful. Depending on your use case, you are will most likely need to enable a set of additional features. To ensure that the bundle size stays small, MDXEditor uses a plugin system. As a convention, each plugin is a separate export, so you can import only the ones you need. Below is an example of a few basic plugins being enabled for the editor.
+
+```tsx
+import { MDXEditor } from '@mdxeditor/editor/MDXEditor'
+import { headingsPlugin } from '@mdxeditor/editor/plugins/headings'
+import { listsPlugin } from '@mdxeditor/editor/plugins/lists'
+import { quotePlugin } from '@mdxeditor/editor/plugins/quote'
+import { thematicBreakPlugin } from '@mdxeditor/editor/plugins/thematic-break'
+
+function App() {
+  return (
+    <MDXEditor markdown='# Hello world' plugins={[headingsPlugin(), listsPlugin(), quotePlugin(), thematicBreakPlugin()]} />
+  )
+}
+```
+
+Follow the links in the sidebar to learn more about each respective capability and the way to enable it.
