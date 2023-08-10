@@ -43,7 +43,7 @@ export default function Page({ params }: { params: PageParams }) {
   })
 
   const tocTree = toc(tree)
-  const tocMarkdown = toMarkdown(tocTree.map!.children[0].children[1]!)
+  const tocMarkdown = toMarkdown(tocTree.map?.children[0].children[1] || { type: 'paragraph', children: [] })
 
   return (
     <DocsLayout

@@ -1,20 +1,139 @@
 ---
 title: Code blocks
 slug: code-blocks
-position: 5
+position: 0.6
 ---
 
 # Code blocks
 
-The MDXEditor component uses dedicated code block editors for fenced code blocks. **Regular code blocks** are edited [with a codemirror editor](https://codemirror.net/) that supports syntax highlighting and basic bracket matching. 
-Code blocks marked with `live` are rendered in a [Sandpack editor](https://sandpack.codesandbox.io/), which supports live previews and more advanced features. You can configure how the sandpack editor behaves by passing a `sandpackOptions` object to the `MDXEditor` component.
+The code block plugin enables support for fenced code blocks, but does not include any code editing UI. The `codeMirrorPlugin` and the `sandpackPlugin` build on top of it to provide a code editing experience. The next example enables both plugins along with their respective toolbar components.
 
-In addition to inserting a code block through the toolbar, the user can type ```` ```$lang ```` (with `$lang` being any supported language, followed by space) to insert a code block.
+```tsx
+const defaultSnippetContent = `
+export default function App() {
+  return (
+    <div className="App">
+      <h1>Hello CodeSandbox</h1>
+      <h2>Start editing to see some magic happen!</h2>
+    </div>
+  );
+}
+`.trim()
 
-## Configuring the code block languages 
+const simpleSandpackConfig: SandpackConfig = {
+  defaultPreset: 'react',
+  presets: [
+    {
+      label: 'React',
+      name: 'react',
+      meta: 'live react',
+      sandpackTemplate: 'react',
+      sandpackTheme: 'light',
+      snippetFileName: '/App.js',
+      snippetLanguage: 'jsx',
+      initialSnippetContent: defaultSnippetContent
+    },
+  ]
+}
 
-Once a code block is in focus, the toolbar contents are replaced with a dropdown that allows the user to change the language of the code block. The default list of languages is web focused - JavaScript, TypeScript and CSS. You can customize the available languages by passing a `codeBlockLanguages` `Record<string, string>` to the `MDXEditor` component, where the key is the language name and the value is the label displayed in the dropdown. 
+function App() {
+  return (
+    <MDXEditor 
+      markdown='hello world'
+      plugins={[
+       // the default code block language to insert when the user clicks the "insert code block" button
+        codeBlockPlugin({defaultCodeBlockLanguage: 'js'}),
+        sandpackPlugin({ sandpackConfig: simpleSandpackConfig }),
+        codeMirrorPlugin({ codeBlockLanguages: { js: 'JavaScript', css: 'CSS' } }),
+        toolbarPlugin({toolbarContents: () => (
+          <ConditionalContents
+            options={[
+                { when: (editor) => editor?.editorType === 'codeblock', contents: () => <ChangeCodeMirrorLanguage /> },
+                { when: (editor) => editor?.editorType === 'sandpack', contents: () => <ShowSandpackInfo /> },
+                { fallback: () => ( <> 
+                <InsertCodeBlock />
+                <InsertSandpack />
+              </>) }
+              ]}
+            />)
+        })
+      ]
+      } 
+    />
+  )
+}
+```
 
-## Configuring the live code blocks
+````md
+Blocks of code
 
-Tuning the live code blocks is a bit more involved, as sandpack needs to know the context of the code block in order to render it correctly. Before diving in, it's good to [understand Sandpack configuration](https://sandpack.codesandbox.io/) itself. MDXEditor supports multiple sandpack configurations, based on the meta data of the code block. To configure the supported presets, pass a `sandpackConfig` property to the component. For more details, refer to the [SandpackConfig interface](../api/editor.sandpackconfig) and the [SandpackPreset interface](../api/editor.sandpackpreset).
+JavaScript:
+
+```js
+export default function App() {
+  return <h1>Hello world from a markdown</h1>
+}
+```
+
+CSS:
+
+```css
+body {
+    color: red;
+}
+```
+
+React Sandpack:
+
+```tsx live react
+export default function App() {
+  return <h1>Hello world from a markdown</h1>
+}
+```
+````
+
+## Configuring the CodeMirror editor
+
+The code mirror editor plugin enables editing of fenced code blocks with basic code editing features like syntax highlighting, indentation and bracket matching. A set of toolbar component utilities support the display of a language selector when the block is in focus, while hiding the rich text editor controls. The plugin accepts supported languages as a parameter option. 
+
+## Configuring the Sandpack editor
+
+Compared to the code mirror editor, the Sandpack one is a bit more complex, as Sandpack needs to know the context of the code block in order to execute it correctly. Before diving in, it's good to [understand Sandpack configuration](https://sandpack.codesandbox.io/) itself. MDXEditor supports multiple Sandpack configurations, based on the meta data of the code block. To configure the supported presets, pass a `sandpackConfig` option in the plugin initialization. For more details, refer to the [SandpackConfig interface](../api/editor.sandpackconfig) and the [SandpackPreset interface](../api/editor.sandpackpreset).
+
+## Build a custom code block editor
+
+You can implement your own stack of custom code editors by passing a code block editor descriptor to the `codeBlockPlugin`. The next example uses a plain text textarea to edit the code block content. More details about each of the constructs in the example can be found in the API reference.
+
+```tsx
+const PlainTextCodeEditorDescriptor: CodeBlockEditorDescriptor = {
+  // always use the editor, no matter the language or the meta of the code block
+  match: (language, meta) => true,
+  // You can have multiple editors with different priorities, so that there's a "catch-all" editor (with the lowest priority)
+  priority: 0,
+  // The Editor is a React component
+  Editor: (props) => {
+    const cb = useCodeBlockEditorContext()
+   // stops the proppagation so that the parent lexical editor does not handle certain events.
+    return (
+      <div onKeyDown={(e) => e.nativeEvent.stopImmediatePropagation()}>
+        <textarea rows={3} cols={20} defaultValue={props.code} onChange={(e) => cb.setCode(e.target.value)} />
+      </div>
+    )
+  }
+}
+
+/** use markdown with some code blocks */
+const codeBlocksMarkdown = ""
+
+export function CodeBlock() {
+  return (
+    <MDXEditor
+      onChange={console.log}
+      markdown={codeBlocksMarkdown}
+      plugins={[
+        codeBlockPlugin({ codeBlockEditorDescriptors: [PlainTextCodeEditorDescriptor] }),
+      ]}
+    />
+  )
+}
+```

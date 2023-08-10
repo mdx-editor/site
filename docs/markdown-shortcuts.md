@@ -16,5 +16,4 @@ The component enables several typing shortcuts (similar to Notion, recently port
 - Select a text and press `Ctrl+B` to make it bold, `Ctrl+I` to make it italic, or `Ctrl+U` to underline it. Use `Cmd` on macOS.
 - With text selected, use `Cmd+K` to open the link dialog.
 - Use `` ` `` to create inline code.
-
-
+- Type ```` ```$lang ```` (with `$lang` being any supported language, followed by space) to insert a code block.
