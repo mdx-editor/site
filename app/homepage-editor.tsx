@@ -1,5 +1,18 @@
 'use client'
-import { ToolbarComponents } from '@mdxeditor/editor'
+import {
+  BoldItalicUnderlineToggles,
+  Separator,
+  CreateLink,
+  BlockTypeSelect,
+  toolbarPlugin,
+  headingsPlugin,
+  linkPlugin,
+  linkDialogPlugin,
+  quotePlugin,
+  listsPlugin,
+  codeBlockPlugin,
+  codeMirrorPlugin,
+} from '@mdxeditor/editor'
 import MDXEditor from './editor'
 
 const markdown = `
@@ -15,9 +28,7 @@ You can also have links, like this link to the [awesome React virtualization lib
 And a code block:
 
 \`\`\`js
-
 console.log("A javascript code block")
-
 \`\`\`
 
 There's a lot more you can find in [live demo](editor/demo).
@@ -28,11 +39,26 @@ const HomepageEditor: React.FC = () => {
       <MDXEditor
         markdown={markdown}
         contentEditableClassName="prose"
-        toolbarComponents={[
-          ToolbarComponents.BoldItalicUnderlineButtons,
-          ToolbarComponents.ToolbarSeparator,
-          ToolbarComponents.LinkButton,
-          ToolbarComponents.BlockTypeSelect,
+        plugins={[
+          headingsPlugin(),
+          codeBlockPlugin(),
+          codeMirrorPlugin({ codeBlockLanguages: { js: 'javascript', ts: 'typescript' } }),
+          linkPlugin(),
+          linkDialogPlugin(),
+          quotePlugin(),
+          listsPlugin(),
+          toolbarPlugin({
+            toolbarContents: () => {
+              return (
+                <>
+                  <BoldItalicUnderlineToggles />
+                  <Separator />
+                  <CreateLink />
+                  <BlockTypeSelect />
+                </>
+              )
+            },
+          }),
         ]}
       />
     </div>

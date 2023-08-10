@@ -1,12 +1,26 @@
 ---
 title: Markdown shortcuts
 slug: markdown-shortcuts
-position: 6
+position: 0.8
 ---
 
 # Markdown keyboard shortcuts
 
-The component enables several typing shortcuts (similar to Notion, recently ported to Google docs) that initiate the corresponding markdown blocks.
+The markdown shortcuts plugin enables typing shortcuts (similar to Notion, recently ported to Google docs) that initiate the corresponding markdown blocks. 
+Notice that you will need need the corresponding plugins for the markdown blocks to be rendered correctly.
+
+```tsx
+    <MDXEditor
+      markdown='hello world'
+      plugins={[
+        headingsPlugin(),
+        listsPlugin(),
+        linkPlugin(),
+        quotePlugin(),
+        markdownShortcutPlugin()
+      ]}
+    />
+```
 
 ## Supported shortcuts
 
