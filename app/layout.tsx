@@ -36,8 +36,8 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
     <html lang="en" className={`bg-white text-neutral-textContrast ${inter.variable} ${source.variable} ${ibmPlexMono.variable}`}>
       <body>
         <div className="lg:max-w-7xl 2xl:max-w-[90rem] mx-auto">
-          <header className="lg:max-w-7xl 2xl:max-w-[90rem] mx-auto md:flex items-baseline px-4 pt-4 pb-2 border-neutral-border border-dashed border-b-[1px] [&_a:hover]:text-accent-text [&_a]:transition-colors gap-4 mb-9">
-            <Link href="/" className="block pb-2 md:pb-0">
+          <header className="lg:max-w-7xl 2xl:max-w-[90rem] mx-auto md:flex items-baseline px-4 pt-4 pb-2 border-neutral-border border-dashed border-b-[1px] [&_a:hover]:text-accent-text [&_a]:transition-colors gap-4 mb-2 md:mb-9">
+            <Link href="/" className="block mb-4 md:mb-0">
               <Logo alt="MDXEditor" width={239} height={39} className="block translate-y-1" />
             </Link>
             <nav className="md:flex flex-grow font-mono font-normal pb-1">

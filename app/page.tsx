@@ -30,7 +30,7 @@ const codeSample1 = `
 export default function Home() {
   return (
     <>
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 xl:gap-y-16 [&>div]:p-4 [&>div]:py-6 mb-8 xl:mb-16">
+      <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 xl:gap-y-16 [&>div]:p-3 [&>div]:py-5 md:[&>div]:p-4 md:[&>div]:py-6 mb-8 xl:mb-16">
         <div>
           <h2 className="font-mono text-2xl font-normal mb-4">
             <span className="underline">Markdown</span> editing can be <br />
@@ -40,6 +40,7 @@ export default function Home() {
             </span>{' '}
             delightful.
           </h2>
+
           <p className="text-lg">
             MDXEditor is an open-source React component that allows <br />
             users to author markdown documents naturally.
@@ -95,29 +96,27 @@ export default function Home() {
         {/* stage 4 */}
         <div className="flex items-stretch">
           <SampleCodeBlock
-            title="Use + as a bullet sign, and _ as emphasis"
+            title="Use `+` as a bullet sign, `_` as emphasis"
             code={`
 <MdxEditor
   markdown={markdown}
-  lexicalConvertOptions={
-  options: {
+  toMarkdownOptions={{
     bullet: '+', 
     emphasis: '_'
-    }
-  }
+  }}
 />
           `.trim()}
             language="tsx"
             fromLine={2}
-            toLine={7}
+            toLine={5}
           />
         </div>
         <div>
           <h2 className="font-mono text-2xl mb-4">Consistent, configurable markdown output</h2>
 
           <p className="text-lg">
-            The component exposes properties that allow you to tune how the editor AST gets converted to markdown. This lets you choose the
-            bullet style, the whitespace settings, the emphasis markers and much more.
+            The component exposes properties that allow you to tune how the editor content gets converted to markdown. This lets you adjust
+            formatting like the bullet style, the whitespace settings, the emphasis markers.
           </p>
 
           <ActionLink href="editor/docs/markdown-processing">
@@ -130,7 +129,7 @@ export default function Home() {
 
       <ul className="grid grid-cols-1 lg:grid-cols-3 gap-6 list-[circle] list-inside mx-4 text-lg marker:text-accent-text">
         <li>
-          <FeatureOverviewItem title="Table editor">
+          <FeatureOverviewItem title="Table editor" link="editor/docs/tables">
             <p>Edit markdown tables with in a dedicated inline UI built for the markdown table syntax.</p>
             <p>Insert rows and columns, and manage column alignment.</p>
             <p>
@@ -141,7 +140,7 @@ export default function Home() {
           </FeatureOverviewItem>
         </li>
         <li>
-          <FeatureOverviewItem title="Link dialog">
+          <FeatureOverviewItem title="Link dialog" link="editor/docs/links">
             <p>
               Users can insert links with a <code>Cmd+K</code> or through the toolbar button.
             </p>
@@ -154,8 +153,8 @@ export default function Home() {
           </FeatureOverviewItem>
         </li>
         <li>
-          <FeatureOverviewItem title="Image support">
-            <p>Paste, drag and drop images, or insert images from the web.</p>
+          <FeatureOverviewItem title="Image support" link="editor/docs/images">
+            <p>Paste, drag and drop images, or insert images from links.</p>
             <p>The image dialog can provide autocomplete suggestions for the image URL.</p>
             <p>
               <a href="editor/demo">
@@ -170,8 +169,8 @@ export default function Home() {
           </FeatureOverviewItem>
         </li>
         <li>
-          <FeatureOverviewItem title="Frontmatter editor">
-            <p>A property key-value panel that lets editor edit the markdown document frontmatter.</p>
+          <FeatureOverviewItem title="Front-matter editor" link="editor/docs/front-matter">
+            <p>A property key-value panel that lets editor edit the markdown document front-matter.</p>
 
             <p>
               <a href="editor/demo">
@@ -181,7 +180,7 @@ export default function Home() {
           </FeatureOverviewItem>
         </li>
         <li>
-          <FeatureOverviewItem title="Markdown shortcuts">
+          <FeatureOverviewItem title="Markdown shortcuts" link="editor/docs/markdown-shortcuts">
             <p className="mb-4">
               Use <code>```js</code> to start a code block, <code>#</code> to start a heading, etc.
             </p>
@@ -195,7 +194,7 @@ export default function Home() {
           </FeatureOverviewItem>
         </li>
         <li>
-          <FeatureOverviewItem title="Diff/source view">
+          <FeatureOverviewItem title="Diff/source view" link="editor/docs/diff-source">
             <p className="mb-4">
               A switch in the toolbar lets the user preview a diff view of the document, or edit the markdown source as a plain text.
             </p>
@@ -206,26 +205,36 @@ export default function Home() {
             </p>
           </FeatureOverviewItem>
         </li>
-
         <li>
-          <FeatureOverviewItem title="MarkdownX Components">
-            <p className="mb-4">
-              Inline/block property editors allow users to change the component instance properties and the child markdown.
-            </p>
+          <FeatureOverviewItem title="Directives" link="editor/docs/custom-directive-editors">
+            <p className="mb-4">Flexible support for custom directives - you can embed the right YouTube cat video in your markdown!</p>
 
             <p>
-              <a href="editor/api/editor.jsxcomponentdescriptor">
-                JsxComponentDescriptor API Reference
+              <a href="editor/docs/custom-directive-editors">
+                Directive docs
                 <SlashedArrowIcon />
               </a>
             </p>
           </FeatureOverviewItem>
         </li>
         <li>
-          <FeatureOverviewItem title="Customizable toolbar">
+          <FeatureOverviewItem title="MarkdownX Components" link="editor/docs/jsx">
             <p className="mb-4">
-              Inject your own toolbar items, change the order of the existing ones, or remove the ones you do not need. Nobody will judge
-              you ;).
+              Implement custom editors for the JSX components in your markdown. Or use the built-in one, it&apos;s also pretty cool.
+            </p>
+
+            <p>
+              <a href="editor/docs/jsx">
+                JSX plugin docs.
+                <SlashedArrowIcon />
+              </a>
+            </p>
+          </FeatureOverviewItem>
+        </li>
+        <li>
+          <FeatureOverviewItem title="Customizable toolbar" link="editor/docs/customizing-toolbar">
+            <p className="mb-4">
+              Inject your own toolbar items, re-arrange existing ones, and remove the ones you do not need. Nobody will judge you ;).
             </p>
 
             <p>
