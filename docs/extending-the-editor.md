@@ -61,7 +61,7 @@ While using strings for the nodes, the hooks have strict TypeScript typings, so 
 
 In its `init` method a plugin can specify a set of MDAST/Lexical **visitors** that will be used to convert the markdown source into the editor state and vice versa. 
 The visitors are plugged into the core system visitors node and then used for processing the markdown input/output. 
-The easiest way for you to get a grip of the mechanism is to take a look at the [core plugin visitors](https://github.com/mdx-editor/editor/tree/plugins/src/plugins/core), that are used to process the basic nodes like paragraphs, bold, italic, etc. The registration of each visitor looks like this (excerpt from the `core` plugin):
+The easiest way for you to get a grip of the mechanism is to take a look at the [core plugin visitors](https://github.com/mdx-editor/editor/tree/main/src/plugins/core), that are used to process the basic nodes like paragraphs, bold, italic, etc. The registration of each visitor looks like this (excerpt from the `core` plugin):
 
 ```tsx
 // core import visitors
