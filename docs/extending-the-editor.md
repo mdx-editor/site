@@ -6,7 +6,7 @@ position: 99
 
 # Extending the editor
 
-MDXEditor code base is built with extensibility in mind. In fact, even the core editor behavior is built is a plugin. In here, we will cover the conceptual design of the codebase without touching on the specifics of the API. 
+MDXEditor code base is built with extensibility in mind. In fact, even the core editor behavior is built as a plugin. In here, we will cover the conceptual design of the codebase without touching on the specifics of the API. 
 
 ## The state management model
 
