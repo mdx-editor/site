@@ -22,7 +22,7 @@ The MDXEditor package definition uses the [exports field](https://nodejs.org/api
 
 Following are the specifics below for the most popular React frameworks.
 
-### Next.js
+### Next.js (App router)
 
 By default, Next.js uses `--moduleResolution node` setting in `tsconfig.json`. This means that TypeScript does not take the `exports` package.json field into account. Depending on your project, you may try to change it to `node16` or `bundler` so that you can use the named exports, which will optimize your bundle. If this is not possible, you can still use the catch all export point `@mdxeditor/editor`.
 
@@ -45,6 +45,29 @@ export const MDXEditor = dynamic(
 ```
 
 If you get stuck, check the [MDX editor in Next.js GitHub sample repository for a working example](https://github.com/mdx-editor/mdx-editor-in-next).
+
+### Next.js (Pages router)
+
+Next.js in pages mode seems to choke on the ESM format of the editor and one of its dependencies. To work around that, include the following packages in your transpilation list in next.config.js:
+
+```ts
+/** @type {import('next').NextConfig} */
+const nextConfig = {
+  transpilePackages: ['@mdxeditor/editor', 'react-diff-view'],
+  reactStrictMode: true,
+  webpack: (config) => {
+    // this will override the experiments
+    config.experiments = { ...config.experiments, topLevelAwait: true };
+    // this will just update topLevelAwait property of config.experiments
+    // config.experiments.topLevelAwait = true 
+    return config;
+  },
+}
+
+module.exports = nextConfig
+```
+
+Check the [MDX editor in Next.js (pages) GitHub sample repository for a working example](https://github.com/mdx-editor/mdx-editor-in-next-pages) for a working example.
 
 ### Vite
 
@@ -73,14 +96,12 @@ If you get stuck, check the [MDX editor in Vite GitHub sample repository for a w
 
 ### Remix
 
-Remix seems [to struggle with ESM-only packages](https://github.com/remix-run/remix/issues/109), like MDXEditor itself and several of its dependencies. 
-There's a (relatively) working example that uses dynamic imports in the [MDX editor in Remix GitHub sample repository](https://github.com/mdx-editor/mdx-editor-in-remix).
+Remix seems [to struggle with ESM-only packages](https://github.com/remix-run/remix/issues/109), like MDXEditor itself and several of its dependencies. To work around that, ensure that you list all problematic modules in the `serverDependenciesToBundle` field.
+Check the working example that uses dynamic imports in the [MDX editor in Remix GitHub sample repository](https://github.com/mdx-editor/mdx-editor-in-remix).
 
 ### Create React App
 
-To make MDXEditor work in a Create React App project, you need to apply the [following craco patch](https://stackoverflow.com/a/75109686) which fixes the Webpack resolution. Afterwards, you can use the editor like any other component (check the Vite example above).
-
-See the [MDX editor in CRA GitHub sample repository for a working example](https://github/com/mdx-editor/mdx-editor-in-cra).
+There's nothing specific about the CRA setup. See the [MDX editor in CRA GitHub sample repository for a working example](https://github/com/mdx-editor/mdx-editor-in-cra).
 
 ## Basic usage
 
