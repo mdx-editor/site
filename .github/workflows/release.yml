@@ -52,6 +52,7 @@ jobs:
       - name: Build API reference docs
         working-directory: temp/editor
         run: |
+          cp -r docs/*.md ../../docs
           mkdir etc
           npm install --legacy-peer-deps
           npm run build
