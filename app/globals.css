@@ -80,6 +80,16 @@
         }
       }
     }
+    & li[role=checkbox] {
+      text-indent: 1.2rem;
+    }
+
+    & li[role=checkbox]::before {
+      transform: translate(6px, 6px);
+    }
+    & li[role=checkbox]::after {
+      transform: translate(6px, 6px) rotate(45deg);
+    }
   }
 
   .api-ref-nav > a {
