@@ -77,6 +77,7 @@ jobs:
       - name: build the Site
         run: |
           npm install --legacy-peer-deps
+          npm install --force @mdxeditor/editor@latest
           npm run build
 
       - name: Upload artifact
