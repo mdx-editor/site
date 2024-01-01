@@ -69,5 +69,12 @@ const allPlugins = (diffMarkdown: string) => [
 ]
 
 export function LiveDemo({ markdown }: { markdown: string }) {
-  return <MDXEditor markdown={markdown} contentEditableClassName="prose max-w-full font-sans" plugins={allPlugins(markdown)} />
+  return (
+    <MDXEditor
+      markdown={markdown}
+      className="full-demo-mdxeditor"
+      contentEditableClassName="prose max-w-full font-sans"
+      plugins={allPlugins(markdown)}
+    />
+  )
 }

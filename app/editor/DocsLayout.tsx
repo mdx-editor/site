@@ -8,14 +8,16 @@ export const DocsLayout: FC<{
 }> = ({ nav, pageNav, content }) => {
   return (
     <div className="md:flex gap-4 p-4">
-      <div className="w-56 [&_dt]:mb-3 [&_dd]:mb-3 [&_li]:mb-3 leading-5 text-sm [&_nav>a]:mb-4 flex-shrink-0">
+      <div className="w-64 [&_dt]:mb-3 [&_dd]:mb-3 [&_li]:mb-3 leading-5 text-sm [&_nav>a]:mb-4 flex-shrink-0">
         <NavToggle>{nav}</NavToggle>
       </div>
-      <div className="flex-grow prose max-w-[unset] flex-wrap overflow-x-auto">{content}</div>
+      <div className="flex-grow prose max-w-[unset] flex-wrap overflow-x-auto doc-content">{content}</div>
 
-      <div className="w-48 flex-shrink-0 hidden md:block">
-        <div className="in-page-nav">{pageNav}</div>
-      </div>
+      {pageNav && (
+        <div className="w-48 flex-shrink-0 hidden md:block">
+          <div className="in-page-nav">{pageNav}</div>
+        </div>
+      )}
     </div>
   )
 }
