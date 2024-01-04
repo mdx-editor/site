@@ -1,5 +1,4 @@
 /* eslint-disable react-refresh/only-export-components */
-import { getApiDocs } from '@/app/getApiDocs'
 import { MDXRemote } from 'next-mdx-remote/rsc'
 import rehypePrism from 'rehype-prism-plus'
 import rehypeSlug from 'rehype-slug'
@@ -46,11 +45,13 @@ interface PageParams {
 }
 
 export function generateMetadata({ params }: { params: PageParams }) {
-  return {}
-  const { docs } = getApiDocs('./api-ref')
-  const doc = docs.find((file) => file.slug === params.slug)
+  let slug = params.slug
+  if (!slug) {
+    slug = ['API Reference']
+  }
+
   return {
-    title: `${doc?.title} | MDXEditor`,
+    title: `${slug.at(-1)} | MDXEditor`,
     description:
       'MDXEditor is an open-source React component that lets your users edit markdown documents naturally, just like in Google docs or Notion.',
   }

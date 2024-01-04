@@ -1,6 +1,5 @@
 'use client'
-import { ApiRefNode, TypeFieldMap, RefNodeField, MarkdownApiRefDocument } from '@/app/apiDocsStructures'
-import React, { useEffect } from 'react'
+import React from 'react'
 import ExpandMoreIcon from '@/app/images/expand_more.svg'
 import ExpandLessIcon from '@/app/images/expand_less.svg'
 import { useParams } from 'next/navigation'
