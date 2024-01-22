@@ -81,7 +81,9 @@ export default function Page({ params }: { params: PageParams }) {
                   selector: 'a',
                   rewrite(node: Root | RootContent) {
                     if (node.type == 'element' && node.tagName === 'a') {
-                      node.properties!.href = (node.properties!.href as string).replace(/\.md$/, '').replace('README.md', '')
+                      let href = node.properties!.href as string
+                      href = href.replace(/\.md$/, '').replace('README.md', '')
+                      node.properties!.href = `/editor/api/${href}`
                     }
                   },
                 },
