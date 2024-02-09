@@ -45,6 +45,11 @@ const RootLayout: React.FC<{ children: React.ReactNode }> = ({ children }) => {
                   <Link href="/editor/demo">Live demo</Link>
                 </li>
                 <li>
+                  <Link href="https://app.mdxeditor.dev/sandbox" className="text-accent-text">
+                    App preview
+                  </Link>
+                </li>
+                <li>
                   <Link href="/editor/docs/getting-started">Docs</Link>
                 </li>
                 <li>

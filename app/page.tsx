@@ -6,6 +6,7 @@ import { FeatureOverviewItem } from './FeatureOverviewItem'
 import SlashedArrowIcon from './images/slashed_arrow.svg'
 import Image from 'next/image'
 import SandpackScreenshot from './images/sandpack-screenshot.png'
+import AppScreenshot from './images/app-screenshot.png'
 
 function twElement<T extends keyof JSX.IntrinsicElements>(elemTagName: T, className: string) {
   return ({ className: classNameProp, ...props }: JSX.IntrinsicElements[T]) => {
@@ -31,6 +32,22 @@ export default function Home() {
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 xl:gap-y-16 [&>div]:p-3 [&>div]:py-5 md:[&>div]:p-4 md:[&>div]:py-6 mb-8 xl:mb-16">
+        {/* stage 0 */}
+        <div className="p-4 mx-4">
+          <Image src={AppScreenshot} alt="App screenshot" />
+        </div>
+        <div>
+          <h2 className="font-mono text-2xl font-normal mb-4">app.mdxeditor is in preview.</h2>
+
+          <p className="text-lg">Edit, commit and push markdown in your GitHub repositories from your browser. No local setup necessary.</p>
+
+          <div className="py-4 flex gap-8">
+            <ActionLinkButton href="https://app.mdxeditor.dev/sandbox" className="border-accent-text bg-accent-text text-neutral-base">
+              Try the app sandbox
+            </ActionLinkButton>
+          </div>
+        </div>
+
         <div>
           <h2 className="font-mono text-2xl font-normal mb-4">
             <span className="underline">Markdown</span> editing can be <br />
