@@ -12,8 +12,8 @@ import {
   listsPlugin,
   codeBlockPlugin,
   codeMirrorPlugin,
+  MDXEditor,
 } from '@mdxeditor/editor'
-import MDXEditor from './editor'
 
 const markdown = `
 Click here to start editing this text.

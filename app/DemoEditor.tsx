@@ -1,5 +1,4 @@
 'use client'
-import MDXEditor from '@/app/editor'
 import {
   toolbarPlugin,
   KitchenSinkToolbar,
@@ -20,6 +19,7 @@ import {
   diffSourcePlugin,
   markdownShortcutPlugin,
   SandpackConfig,
+  MDXEditor,
 } from '@mdxeditor/editor'
 
 const defaultSnippetContent = `
@@ -68,7 +68,7 @@ const allPlugins = (diffMarkdown: string) => [
   markdownShortcutPlugin(),
 ]
 
-export function LiveDemo({ markdown }: { markdown: string }) {
+export default function DemoEditor({ markdown }: { markdown: string }) {
   return (
     <MDXEditor
       markdown={markdown}

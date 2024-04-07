@@ -1,18 +1,20 @@
 import { createElement, JSX } from 'react'
 import { twMerge } from 'tailwind-merge'
-import HomepageEditor from './homepage-editor'
 import SampleCodeBlock from './sample-code-block'
 import { FeatureOverviewItem } from './FeatureOverviewItem'
 import SlashedArrowIcon from './images/slashed_arrow.svg'
 import Image from 'next/image'
 import SandpackScreenshot from './images/sandpack-screenshot.png'
 import AppScreenshot from './images/app-screenshot.png'
+import dynamic from 'next/dynamic'
 
 function twElement<T extends keyof JSX.IntrinsicElements>(elemTagName: T, className: string) {
   return ({ className: classNameProp, ...props }: JSX.IntrinsicElements[T]) => {
     return createElement(elemTagName, { ...props, className: twMerge(className, classNameProp) })
   }
 }
+
+const HomepageEditor = dynamic(() => import('./HomepageEditor'), { ssr: false })
 
 const ActionLinkButton = twElement(
   'a',
