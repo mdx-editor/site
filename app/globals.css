@@ -188,6 +188,18 @@
     grid-template-columns: 1fr 1fr 1fr;
   }
 
+  .doc-content blockquote {
+    font-style: normal;
+  }
+
+  .doc-content blockquote p::before {
+    content: '';
+  }
+
+  .doc-content blockquote p::after {
+    content: '';
+  }
+
   h2#classes+table,
   h2#functions+table,
   h2#interfaces+table,

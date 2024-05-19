@@ -17,8 +17,8 @@ interface NavGroup {
 
 function getNav(): NavGroup[] {
   const markdown = readFileSync('./api-ref/README.md', 'utf-8')
-  const md = markdown.split('\n## ')[1].split('\n').slice(1).join('\n')
-
+  // find the first heading and get everything after it
+  const md = markdown.split('\n## ').slice(1).join('\n## ')
   const navGroups: NavGroup[] = []
 
   const tree = fromMarkdown(md, {

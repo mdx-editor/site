@@ -63,7 +63,7 @@ export default function Page({ params }: { params: PageParams }) {
     slug = ['README']
   }
 
-  const pageContent = fs.readFileSync(`./api-ref/${slug.join('/')}.md`, 'utf-8')
+  const pageContent = fs.readFileSync(`./api-ref/${decodeURIComponent(slug.join('/'))}.md`, 'utf-8')
 
   return (
     <div className={classNames({ homepage: slug[0] === 'README' })}>
@@ -82,7 +82,7 @@ export default function Page({ params }: { params: PageParams }) {
                   rewrite(node: Root | RootContent) {
                     if (node.type == 'element' && node.tagName === 'a') {
                       let href = node.properties!.href as string
-                      href = href.replace(/\.md$/, '').replace('README.md', '')
+                      href = href.replace(/\.md/, '').replace('README.md', '')
 
                       // relative links are ok
                       if (!href.startsWith('..')) {
