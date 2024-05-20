@@ -77,7 +77,11 @@
     & pre[class*="language-"]>code {
       @apply text-sm;
       display: block;
+    }
 
+    .cm-content {
+      @apply font-mono;
+      @apply text-xs;
     }
 
     & [data-editor-type=frontmatter] {
