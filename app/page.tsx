@@ -1,12 +1,11 @@
+import dynamic from 'next/dynamic'
+import Image from 'next/image'
 import { createElement, JSX } from 'react'
 import { twMerge } from 'tailwind-merge'
-import SampleCodeBlock from './sample-code-block'
 import { FeatureOverviewItem } from './FeatureOverviewItem'
-import SlashedArrowIcon from './images/slashed_arrow.svg'
-import Image from 'next/image'
 import SandpackScreenshot from './images/sandpack-screenshot.png'
-import AppScreenshot from './images/app-screenshot.png'
-import dynamic from 'next/dynamic'
+import SlashedArrowIcon from './images/slashed_arrow.svg'
+import SampleCodeBlock from './sample-code-block'
 
 function twElement<T extends keyof JSX.IntrinsicElements>(elemTagName: T, className: string) {
   return ({ className: classNameProp, ...props }: JSX.IntrinsicElements[T]) => {
@@ -15,7 +14,6 @@ function twElement<T extends keyof JSX.IntrinsicElements>(elemTagName: T, classN
 }
 
 const HomepageEditor = dynamic(() => import('./HomepageEditor'), { ssr: false })
-
 const ActionLinkButton = twElement(
   'a',
   'border-solid border-[1px] rounded-md border-neutral-textContrast px-8 py-3 bg-white font-mono text-sm'
@@ -34,7 +32,7 @@ export default function Home() {
   return (
     <>
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-y-8 xl:gap-y-16 [&>div]:p-3 [&>div]:py-5 md:[&>div]:p-4 md:[&>div]:py-6 mb-8 xl:mb-16">
-        {/* stage 0 */}
+        {/* stage 0 
         <div className="p-4 mx-4">
           <Image src={AppScreenshot} alt="App screenshot" />
         </div>
@@ -49,7 +47,7 @@ export default function Home() {
             </ActionLinkButton>
           </div>
         </div>
-
+*/}
         <div>
           <h2 className="font-mono text-2xl font-normal mb-4">
             <span className="underline">Markdown</span> editing can be <br />
