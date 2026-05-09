@@ -1,9 +1,7 @@
 import dynamic from 'next/dynamic'
-import Image from 'next/image'
 import { createElement, JSX } from 'react'
 import { twMerge } from 'tailwind-merge'
 import { FeatureOverviewItem } from './FeatureOverviewItem'
-import SandpackScreenshot from './images/sandpack-screenshot.png'
 import SlashedArrowIcon from './images/slashed_arrow.svg'
 import SampleCodeBlock from './sample-code-block'
 
@@ -25,6 +23,21 @@ const codeSample1 = `
   markdown={markdown}
   className={className}
   contentEditableClassName="my-prose-class"
+/>
+`.trim()
+
+const codeSample2 = `
+<MdxEditor
+  markdown={markdown}
+  plugins={[
+    codeBlockPlugin(),
+    codeMirrorPlugin({
+      codeBlockLanguages: {
+        tsx: 'TypeScript',
+        css: 'CSS'
+      }
+    })
+  ]}
 />
 `.trim()
 
@@ -97,18 +110,18 @@ export default function Home() {
         </div>
         {/* stage 3 */}
         <div>
-          <h2 className="font-mono text-2xl mb-4">Code blocks with syntax highlighting, auto-complete, and live preview</h2>
+          <h2 className="font-mono text-2xl mb-4">Code blocks with syntax highlighting and language-aware editing</h2>
 
           <p className="text-lg">
-            No more code samples with sneaky syntax errors. Live preview of the snippet result, powered by Sandpack.
+            Configure the code block languages your project uses and let authors edit snippets directly in the document.
           </p>
 
           <ActionLink href="editor/docs/code-blocks">
             Code blocks docs <SlashedArrowIcon />
           </ActionLink>
         </div>
-        <div>
-          <Image src={SandpackScreenshot} alt="Sandpack screenshot" />
+        <div className="flex items-stretch">
+          <SampleCodeBlock title="Enable CodeMirror for editable code blocks" code={codeSample2} language="tsx" fromLine={4} toLine={11} />
         </div>
         {/* stage 4 */}
         <div className="flex items-stretch">

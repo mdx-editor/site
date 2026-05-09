@@ -2,7 +2,7 @@
   No more need for preview. Style the content editable part with the same styles as your live site.
 
 - Code samples are no longer that painful
-  Code blocks are now editable with syntax highlighting, auto-complete and indentation. You can even configure a live preview for your code blocks, powered by sandpack.
+  Code blocks are editable with syntax highlighting, language-aware editing and indentation.
 
 - Tables without space/dash counting 
   Tables are editable with in a dedicated UI that's tailored to the markdown table support.
@@ -27,4 +27,3 @@ Check the source markdown, or the diff between the source and the current markdo
     The robust rich-text editing framework from Facebook enables nested editors, rich text UI, and more.
   - AST based markdown generation
     Markdown generation is based on AST, which guarantees consistent formatting, and error-free output.
-
